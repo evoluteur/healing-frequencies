@@ -21,7 +21,7 @@
       let AudioContext = window.AudioContext || window.webkitAudioContext;
       let context = new AudioContext();
 
-      const playFrequency = (frequency = 440) => {
+      const playFreq = (frequency = 440) => {
         if (frequency === "cf") {
           frequency = parseFloat("0" + document.getElementById("cf").value);
           if (!frequency) return;
@@ -59,19 +59,20 @@
       .num {
         width: 5em;
       }
-      div {
-        padding: 10px 0;
-      }
       button {
-        padding: 5px 15px;
-        margin: 6px 4px;
+        padding: 6px 15px;
+        margin: 6px 6px 6px 0;
         border-radius: 10px;
         cursor: pointer;
         background-color: #c6d9f0;
         transition: background-color 0.2s;
-        &:hover {
-          background-color: white;
-        }
+        border-width: 1px;
+      }
+      button:hover {
+        background-color: white;
+      }
+      button > span {
+        color: green;
       }
       select {
         position: absolute;
@@ -91,6 +92,11 @@
           color: white;
         }
       }
+      .fs {
+        border-left: 3px solid #c6d9f0;
+        margin: 50px 0;
+        padding: 0 0 5px 20px;
+      }
     </style>
   </head>
 
@@ -107,30 +113,30 @@
     </select>
     <div class="fs">
       <h2>Solfeggio</h2>
-      <button onclick="playFrequency(174)">
-        174 Hz - Physical pain relief and stress relief
+      <button onclick="playFreq(174)"><span>
+        174 Hz</span> - Physical pain relief and stress relief
       </button>
-      <button onclick="playFrequency(285)">
-        285 Hz - Tissue restauration and healing
+      <button onclick="playFreq(285)"><span>
+        285 Hz</span> - Tissue restauration and healing
       </button>
-      <button onclick="playFrequency(395)">
-        395 Hz - Guilt and fear diminishment
+      <button onclick="playFreq(395)"><span>
+        395 Hz</span> - Guilt and fear diminishment
       </button>
-      <button onclick="playFrequency(417)">417 Hz - Trauma healing</button>
-      <button onclick="playFrequency(528)">
-        528 Hz - Relaxation and sleep improvement
+      <button onclick="playFreq(417)"><span>417 Hz</span> - Trauma healing</button>
+      <button onclick="playFreq(528)"><span>
+        528 Hz</span> - Relaxation and sleep improvement
       </button>
-      <button onclick="playFrequency(639)">
-        639 Hz - Improvement in mental balance
+      <button onclick="playFreq(639)"><span>
+        639 Hz</span> - Improvement in mental balance
       </button>
-      <button onclick="playFrequency(741)">
-        741 Hz - Detoxification of the mind and body
+      <button onclick="playFreq(741)"><span>
+        741 Hz</span> - Detoxification of the mind and body
       </button>
-      <button onclick="playFrequency(852)">
-        852 Hz - Nervousness and anxity relief
+      <button onclick="playFreq(852)"><span>
+        852 Hz</span> - Nervousness and anxity relief
       </button>
-      <button onclick="playFrequency(963)">
-        963 Hz - Increased positive energy and clarity
+      <button onclick="playFreq(963)"><span>
+        963 Hz</span> - Increased positive energy and clarity
       </button>
       <p>
         <a
@@ -144,18 +150,18 @@
 
     <div class="fs">
       <h2>Healing</h2>
-      <button onclick="playFrequency(128)">
-        128 Hz - Blood circulation, sleep, and stress relief
+      <button onclick="playFreq(128)"><span>
+        128 Hz</span> - Blood circulation, sleep, and stress relief
       </button>
-      <button onclick="playFrequency(256)">
-        256 Hz - Cell growth, tissue regeneration, and pain relief
+      <button onclick="playFreq(256)"><span>
+        256 Hz</span> - Cell growth, tissue regeneration, and pain relief
       </button>
-      <button onclick="playFrequency(512)">
-        512 Hz - Mental clarity and concentration, relaxation and sleep, and
+      <button onclick="playFreq(512)"><span>
+        512 Hz</span> - Mental clarity and concentration, relaxation and sleep, and
         stress relief
       </button>
-      <button onclick="playFrequency(1024)">
-        1024 Hz - Balancing the body's energy, improving the immune system, and
+      <button onclick="playFreq(1024)"><span>
+        1024 Hz</span> - Balancing the body's energy, improving the immune system, and
         pain relief
       </button>
 
@@ -171,21 +177,21 @@
 
     <div class="fs">
       <h2>Organs</h2>
-      <button onclick="playFrequency(321.9)">321.9 Hz - Blood</button>
-      <button onclick="playFrequency(492.8)">492.8 Hz - Adrenals</button>
-      <button onclick="playFrequency(319.88)">319.88 Hz - Kidneys</button>
-      <button onclick="playFrequency(317.83)">317.83 Hz - Liver</button>
-      <button onclick="playFrequency(352)">352 Hz - Bladder</button>
-      <button onclick="playFrequency(281)">281 Hz - Intestines</button>
-      <button onclick="playFrequency(220)">220 Hz - Lungs</button>
-      <button onclick="playFrequency(176)">176 Hz - Colon</button>
-      <button onclick="playFrequency(164.3)">164.3 Hz - Gall Bladder</button>
-      <button onclick="playFrequency(117.3)">117.3 Hz - Pancreas</button>
-      <button onclick="playFrequency(110)">110 Hz - Stomach</button>
-      <button onclick="playFrequency(315.8)">315.8 Hz - Brain</button>
-      <button onclick="playFrequency(295.8)">295.8 Hz - Fat Cells</button>
-      <button onclick="playFrequency(324)">324 Hz - Muscles</button>
-      <button onclick="playFrequency(418.3)">418.3 Hz - Bone</button>
+      <button onclick="playFreq(321.9)"><span>321.9 Hz</span> - Blood</button>
+      <button onclick="playFreq(492.8)"><span>492.8 Hz</span> - Adrenals</button>
+      <button onclick="playFreq(319.88)"><span>319.88 Hz</span> - Kidneys</button>
+      <button onclick="playFreq(317.83)"><span>317.83 Hz</span> - Liver</button>
+      <button onclick="playFreq(352)"><span>352 Hz</span> - Bladder</button>
+      <button onclick="playFreq(281)"><span>281 Hz</span> - Intestines</button>
+      <button onclick="playFreq(220)"><span>220 Hz</span> - Lungs</button>
+      <button onclick="playFreq(176)"><span>176 Hz</span> - Colon</button>
+      <button onclick="playFreq(164.3)"><span>164.3 Hz</span> - Gall Bladder</button>
+      <button onclick="playFreq(117.3)"><span>117.3 Hz</span> - Pancreas</button>
+      <button onclick="playFreq(110)"><span>110 Hz</span> - Stomach</button>
+      <button onclick="playFreq(315.8)"><span>315.8 Hz</span> - Brain</button>
+      <button onclick="playFreq(295.8)"><span>295.8 Hz</span> - Fat Cells</button>
+      <button onclick="playFreq(324)"><span>324 Hz</span> - Muscles</button>
+      <button onclick="playFreq(418.3)"><span>418.3 Hz</span> - Bone</button>
       <p>
         <a
           href="https://www.lambdoma.com/music-gift.html"
@@ -198,22 +204,22 @@
 
     <div class="fs">
       <h2>Mineral Nutrients</h2>
-      <button onclick="playFrequency(272)">
-        272 Hz - Selenium and Chlorine
+      <button onclick="playFreq(272)"><span>
+        272 Hz</span> - Selenium and Chlorine
       </button>
-      <button onclick="playFrequency(336)">336 Hz - Molybdenum</button>
-      <button onclick="playFrequency(304)">304 Hz - Potassium</button>
-      <button onclick="playFrequency(320)">320 Hz - Calcium</button>
-      <button onclick="playFrequency(384)">
-        384 Hz - Chromium and Magnesium
+      <button onclick="playFreq(336)"><span>336 Hz</span> - Molybdenum</button>
+      <button onclick="playFreq(304)"><span>304 Hz</span> - Potassium</button>
+      <button onclick="playFreq(320)"><span>320 Hz</span> - Calcium</button>
+      <button onclick="playFreq(384)"><span>
+        384 Hz</span> - Chromium and Magnesium
       </button>
-      <button onclick="playFrequency(400)">400 Hz - Manganese</button>
-      <button onclick="playFrequency(416)">416 Hz - Iron</button>
-      <button onclick="playFrequency(424)">424 Hz - Iodine</button>
-      <button onclick="playFrequency(464)">464 Hz - Copper</button>
-      <button onclick="playFrequency(480)">480 Hz - Phosphorus and Zinc</button>
-      <button onclick="playFrequency(352)">352 Hz - Sodium</button>
-      <button onclick="playFrequency(256)">256 Hz - Sulphur</button>
+      <button onclick="playFreq(400)"><span>400 Hz</span> - Manganese</button>
+      <button onclick="playFreq(416)"><span>416 Hz</span> - Iron</button>
+      <button onclick="playFreq(424)"><span>424 Hz</span> - Iodine</button>
+      <button onclick="playFreq(464)"><span>464 Hz</span> - Copper</button>
+      <button onclick="playFreq(480)"><span>480 Hz</span> - Phosphorus and Zinc</button>
+      <button onclick="playFreq(352)"><span>352 Hz</span> - Sodium</button>
+      <button onclick="playFreq(256)"><span>256 Hz</span> - Sulphur</button>
       <p>
         <a
           href="https://www.lambdoma.com/music-gift.html"
@@ -226,26 +232,26 @@
 
     <div class="fs">
       <h2>Chakras</h2>
-      <button onclick="playFrequency(194.18)">
-        194.18 Hz - Root (Muladhara)
+      <button onclick="playFreq(194.18)"><span>
+        194.18 Hz</span> - Root (Muladhara)
       </button>
-      <button onclick="playFrequency(210.42)">
-        210.42 Hz - Sacral (Svadhisthana)
+      <button onclick="playFreq(210.42)"><span>
+        210.42 Hz</span> - Sacral (Svadhisthana)
       </button>
-      <button onclick="playFrequency(126.22)">
-        126.22 Hz - Solar Plexus (Manipura)
+      <button onclick="playFreq(126.22)"><span>
+        126.22 Hz</span> - Solar Plexus (Manipura)
       </button>
-      <button onclick="playFrequency(136.1)">136.1 Hz - Heart (Anahata)</button>
-      <button onclick="playFrequency(141.27)">
-        141.27 Hz - Throat (Vishuddha)
+      <button onclick="playFreq(136.1)"><span>136.1 Hz</span> - Heart (Anahata)</button>
+      <button onclick="playFreq(141.27)"><span>
+        141.27 Hz</span> - Throat (Vishuddha)
       </button>
-      <button onclick="playFrequency(221.23)">
-        221.23 Hz - Third Eye (Ajna)
+      <button onclick="playFreq(221.23)"><span>
+        221.23 Hz</span> - Third Eye (Ajna)
       </button>
-      <button onclick="playFrequency(172.06)">
-        172.06 Hz - Crown (Sahasrara)
+      <button onclick="playFreq(172.06)"><span>
+        172.06 Hz</span> - Crown (Sahasrara)
       </button>
-      <button onclick="playFrequency(272.2)">272.2 Hz - Soul</button>
+      <button onclick="playFreq(272.2)"><span>272.2 Hz</span> - Soul</button>
       <p>
         <a
           href="https://www.castastone.com/blogs/cast-a-stone-blog/the-ultimate-guide-to-chakra-tuning-forks-unlock-the-healing-power-of-sound"
@@ -256,17 +262,17 @@
       </p>
 
       <h3>Solfeggio based</h3>
-      <button onclick="playFrequency(396)">396 Hz - Root (Muladhara)</button>
-      <button onclick="playFrequency(417)">
-        417 Hz - Sacral (Svadhisthana)
+      <button onclick="playFreq(396)"><span>396 Hz</span> - Root (Muladhara)</button>
+      <button onclick="playFreq(417)"><span>
+        417 Hz</span> - Sacral (Svadhisthana)
       </button>
-      <button onclick="playFrequency(528)">
-        528 Hz - Solar Plexus (Manipura)
+      <button onclick="playFreq(528)"><span>
+        528 Hz</span> - Solar Plexus (Manipura)
       </button>
-      <button onclick="playFrequency(639)">639 Hz - Heart (Anahata)</button>
-      <button onclick="playFrequency(741)">741 Hz - Throat (Vishuddha)</button>
-      <button onclick="playFrequency(852)">852 Hz - Third Eye (Ajna)</button>
-      <button onclick="playFrequency(963)">963 Hz - Crown (Sahasrara)</button>
+      <button onclick="playFreq(639)"><span>639 Hz</span> - Heart (Anahata)</button>
+      <button onclick="playFreq(741)"><span>741 Hz</span> - Throat (Vishuddha)</button>
+      <button onclick="playFreq(852)"><span>852 Hz</span> - Third Eye (Ajna)</button>
+      <button onclick="playFreq(963)"><span>963 Hz</span> - Crown (Sahasrara)</button>
       <p>
         <a
           href="https://chakrapractice.com/what-are-chakra-frequencies-ultimate-guide/"
@@ -279,17 +285,17 @@
 
     <div class="fs">
       <h2>Cosmic Octave</h2>
-      <button onclick="playFrequency(194.18)">194.18 Hz - Earth</button>
-      <button onclick="playFrequency(210.42)">210.42 Hz - Moon</button>
-      <button onclick="playFrequency(126.22)">126.22 Hz - Sun</button>
-      <button onclick="playFrequency(141.27)">141.27 Hz - Mercury</button>
-      <button onclick="playFrequency(221.23)">221.23 Hz - Venus</button>
-      <button onclick="playFrequency(144.72)">144.72 Hz - Mars</button>
-      <button onclick="playFrequency(183.58)">183.58 Hz - Jupiter</button>
-      <button onclick="playFrequency(147.85)">147.85 Hz - Saturn</button>
-      <button onclick="playFrequency(207.36)">207.36 Hz - Uranus</button>
-      <button onclick="playFrequency(211.44)">211.44 Hz - Neptune</button>
-      <button onclick="playFrequency(140.25)">140.25 Hz - Pluto</button>
+      <button onclick="playFreq(194.18)"><span>194.18 Hz</span> - Earth</button>
+      <button onclick="playFreq(210.42)"><span>210.42 Hz</span> - Moon</button>
+      <button onclick="playFreq(126.22)"><span>126.22 Hz</span> - Sun</button>
+      <button onclick="playFreq(141.27)"><span>141.27 Hz</span> - Mercury</button>
+      <button onclick="playFreq(221.23)"><span>221.23 Hz</span> - Venus</button>
+      <button onclick="playFreq(144.72)"><span>144.72 Hz</span> - Mars</button>
+      <button onclick="playFreq(183.58)"><span>183.58 Hz</span> - Jupiter</button>
+      <button onclick="playFreq(147.85)"><span>147.85 Hz</span> - Saturn</button>
+      <button onclick="playFreq(207.36)"><span>207.36 Hz</span> - Uranus</button>
+      <button onclick="playFreq(211.44)"><span>211.44 Hz</span> - Neptune</button>
+      <button onclick="playFreq(140.25)"><span>140.25 Hz</span> - Pluto</button>
       <p>
         <a
           href="https://www.planetware.de/octave/"
@@ -301,10 +307,10 @@
     </div>
 
     <div class="fs">
-      <h2>Otto (Ostheopathic)</h2>
-      <button onclick="playFrequency(32)">32 Hz</button>
-      <button onclick="playFrequency(64)">64 Hz</button>
-      <button onclick="playFrequency(128)">128 Hz</button>
+      <h2>Ostheopathic (Otto)</h2>
+      <button onclick="playFreq(32)"><span>32 Hz</button>
+      <button onclick="playFreq(64)"><span>64 Hz</button>
+      <button onclick="playFreq(128)"><span>128 Hz</button>
       <p>
         <a
           href="https://soundwellness.com/tuning-forks/otto-forks/"
@@ -317,10 +323,10 @@
 
     <div class="fs">
       <h2>Angels</h2>
-      <button onclick="playFrequency(4096)">4096 Hz - Jacob's Ladder</button>
-      <button onclick="playFrequency(4160)">4160 Hz - Pillar of Light</button>
-      <button onclick="playFrequency(4225)">
-        4225 Hz - Stairway to Heaven
+      <button onclick="playFreq(4096)"><span>4096 Hz</span> - Jacob's Ladder</button>
+      <button onclick="playFreq(4160)"><span>4160 Hz</span> - Pillar of Light</button>
+      <button onclick="playFreq(4225)"><span>
+        4225 Hz</span> - Stairway to Heaven
       </button>
       <p>
         <a
@@ -334,8 +340,8 @@
 
     <div class="fs">
       <h2>Custom</h2>
-      <input id="cf" type="number" class="num" value="174" /> Hz
-      <button onclick="playFrequency('cf')">Play</button>
+      <input id="cf" type="number" class="num" value="174" /> Hz &nbsp;
+      <button onclick="playFreq('cf')">Play</button>
     </div>
 
     <p><br /></p>
