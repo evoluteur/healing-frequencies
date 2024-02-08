@@ -1,0 +1,25 @@
+{
+  "name": "healing-frequencies",
+  "version": "1.0.0",
+  "description": "Simple web page to play the frequencies of various sets of healing tuning forks: Solfeggio, Organs, Mineral Nutrients, Chakras, Cosmic Octave, Otto, and Angels.",
+  "repository": "github:evoluteur/healing-frequencies",
+  "homepage": "https://evoluteur.github.io/healing-frequencies/",
+  "copyright": "(c) 2024 Olivier Giulieri",
+  "author": "Olivier Giulieri (https://evoluteur.github.io/)",
+  "license": "MIT",
+  "keywords": [
+    "healing",
+    "frequency",
+    "tuning",
+    "fork",
+    "vibration",
+    "otto",
+    "ostheopathic",
+    "frequencies",
+    "cosmic",
+    "vibrations",
+    "solfeggio",
+    "chakras",
+    "solfeggio-frequency"
+  ]
+}
