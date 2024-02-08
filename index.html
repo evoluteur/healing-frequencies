@@ -1,0 +1,224 @@
+<html>
+  <head>
+    <title>Healing Frequencies</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#bbdefb" />
+    <meta
+      name="keywords"
+      content="healing tuning fork frequencies solfeggio otto chakras cosmic"
+    />
+    <meta name="description" content="Virtual tuning forks for healing" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Marcellus"
+    />
+    <script>
+      const VOLUME_CURVE = [1.0, 0.61, 0.37, 0.22, 0.14, 0.08, 0.05, 0];
+      let duration = 5;
+      let AudioContext = window.AudioContext || window.webkitAudioContext;
+      let context = new AudioContext();
+
+      const playFrequency = (frequency = 440) => {
+        const o = context.createOscillator();
+        const g = context.createGain();
+        o.connect(g);
+        o.type = "sine";
+        o.frequency.value = frequency;
+        g.connect(context.destination);
+        o.start(0);
+        //g.gain.exponentialRampToValueAtTime(0.0001,context.currentTime + duration)
+        g.gain.setValueCurveAtTime(VOLUME_CURVE, context.currentTime, duration);
+      };
+      const setDuration = (e) => {
+        duration = parseInt(e.selectedOptions[0].value);
+      };
+    </script>
+    <style>
+      html {
+        padding: 5px 10px 20px;
+        color: white;
+        background-color: #17365d;
+        scroll-behavior: smooth;
+        background: #0288d1 url("spirals.png");
+        font-family: "Marcellus", serif;
+      }
+      html,
+      button,
+      select,
+      input {
+        font-family: "Marcellus", serif;
+      }
+      div {
+        padding: 10px 0;
+      }
+      button {
+        font-size: 16px;
+        padding: 5px 15px;
+        margin: 6px 4px;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: #8db3e2;
+        transition: background-color 0.2s;
+        &:hover {
+          background-color: #c6d9f0;
+        }
+      }
+      select {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 16px;
+        padding: 0 4px;
+      }
+      a,
+      .footer {
+        color: #c6d9f0;
+      }
+      a {
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Healing Frequencies</h1>
+    <select onchange="setDuration(this)">
+      <option value="5">5 seconds</option>
+      <option value="10">10 seconds</option>
+      <option value="20">20 seconds</option>
+      <option value="30">30 seconds</option>
+      <option value="60">1 minute</option>
+      <option value="120">2 minutes</option>
+      <option value="180">3 minutes</option>
+    </select>
+    <div class="fs">
+      <h2>Solfeggio</h2>
+      <button onclick="playFrequency(174)">
+        Physical pain relief and stress relief
+      </button>
+      <button onclick="playFrequency(285)">
+        Tissue restauration and healing
+      </button>
+      <button onclick="playFrequency(395)">Guilt and fear diminishment</button>
+      <button onclick="playFrequency(417)">Trauma healing</button>
+      <button onclick="playFrequency(528)">
+        Relaxation and sleep improvement
+      </button>
+      <button onclick="playFrequency(639)">
+        Improvement in mental balance
+      </button>
+      <button onclick="playFrequency(741)">
+        Detoxification of the mind and body
+      </button>
+      <button onclick="playFrequency(852)">
+        Nervousness and anxity relief
+      </button>
+      <button onclick="playFrequency(963)">
+        Increased positive energy and clarity
+      </button>
+    </div>
+
+    <div class="fs">
+      <h2>Healing</h2>
+      <button onclick="playFrequency(128)">
+        Blood circulation, sleep, and stress relief
+      </button>
+      <button onclick="playFrequency(256)">
+        Cell growth, tissue regeneration, and pain relief
+      </button>
+      <button onclick="playFrequency(512)">
+        Mental clarity and concentration, relaxation and sleep, and stress
+        relief
+      </button>
+      <button onclick="playFrequency(1024)">
+        Balancing the body's energy, improving the immune system, and pain
+        relief
+      </button>
+    </div>
+
+    <div class="fs">
+      <h2>Otto (Ostheopathic)</h2>
+      <button onclick="playFrequency(32)">32 Hz</button>
+      <button onclick="playFrequency(64)">64 Hz</button>
+      <button onclick="playFrequency(128)">128 Hz</button>
+    </div>
+
+    <div class="fs">
+      <h2>Organs</h2>
+      <button onclick="playFrequency(321.9)">Blood</button>
+      <button onclick="playFrequency(492.8)">Adrenals</button>
+      <button onclick="playFrequency(319.88)">Kidneys</button>
+      <button onclick="playFrequency(317.83)">Liver</button>
+      <button onclick="playFrequency(352)">Bladder</button>
+      <button onclick="playFrequency(281)">Intestines</button>
+      <button onclick="playFrequency(220)">Lungs</button>
+      <button onclick="playFrequency(176)">Colon</button>
+      <button onclick="playFrequency(164.3)">Gall Bladder</button>
+      <button onclick="playFrequency(117.3)">Pancreas</button>
+      <button onclick="playFrequency(110)">Stomach</button>
+      <button onclick="playFrequency(315.8)">Brain</button>
+      <button onclick="playFrequency(295.8)">Fat Cells</button>
+      <button onclick="playFrequency(324)">Muscles</button>
+      <button onclick="playFrequency(418.3)">Bone</button>
+    </div>
+
+    <div class="fs">
+      <h2>Mineral Nutrients</h2>
+      <button onclick="playFrequency(272)">Selenium and Chlorine</button>
+      <button onclick="playFrequency(336)">Molybdenum</button>
+      <button onclick="playFrequency(304)">Potassium</button>
+      <button onclick="playFrequency(320)">Calcium</button>
+      <button onclick="playFrequency(384)">Chromium and Magnesium</button>
+      <button onclick="playFrequency(400)">Manganese</button>
+      <button onclick="playFrequency(416)">Iron</button>
+      <button onclick="playFrequency(424)">Iodine</button>
+      <button onclick="playFrequency(464)">Copper</button>
+      <button onclick="playFrequency(480)">Phosphorus and Zinc</button>
+      <button onclick="playFrequency(352)">Sodium</button>
+      <button onclick="playFrequency(256)">Sulphur</button>
+    </div>
+
+    <div class="fs">
+      <h2>Chakras</h2>
+      <button onclick="playFrequency(194.18)">Root (Muladhara)</button>
+      <button onclick="playFrequency(210.42)">Sacral (Svadhisthana)</button>
+      <button onclick="playFrequency(126.22)">Solar Plexus (Manipura)</button>
+      <button onclick="playFrequency(136.1)">Heart (Anahata)</button>
+      <button onclick="playFrequency(141.27)">Throat (Vishuddha)</button>
+      <button onclick="playFrequency(221.23)">Third Eye (Ajna)</button>
+      <button onclick="playFrequency(172.06)">Crown (Sahasrara)</button>
+      <button onclick="playFrequency(272.2)">Soul</button>
+    </div>
+
+    <div class="fs">
+      <h2>Cosmic Octave</h2>
+      <button onclick="playFrequency(194.18)">Earth</button>
+      <button onclick="playFrequency(210.42)">Moon</button>
+      <button onclick="playFrequency(126.22)">Sun</button>
+      <button onclick="playFrequency(141.27)">Mercury</button>
+      <button onclick="playFrequency(221.23)">Venus</button>
+      <button onclick="playFrequency(144.72)">Mars</button>
+      <button onclick="playFrequency(183.58)">Jupiter</button>
+      <button onclick="playFrequency(147.85)">Saturn</button>
+      <button onclick="playFrequency(207.36)">Uranus</button>
+      <button onclick="playFrequency(211.44)">Neptune</button>
+      <button onclick="playFrequency(140.25)">Pluto</button>
+    </div>
+
+    <div class="fs">
+      <h2>Angels</h2>
+      <button onclick="playFrequency(4096)">4096 Hz</button>
+      <button onclick="playFrequency(4160)">4160 Hz</button>
+      <button onclick="playFrequency(4225)">4225 Hz</button>
+    </div>
+
+    <p class="footer">
+      © 2024 <a href="https://evoluteur.github.io/">Olivier Giulieri</a>
+    </p>
+  </body>
+</html>
