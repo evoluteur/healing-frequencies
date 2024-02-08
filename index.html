@@ -22,6 +22,10 @@
       let context = new AudioContext();
 
       const playFrequency = (frequency = 440) => {
+        if (frequency === "cf") {
+          frequency = parseFloat("0" + document.getElementById("cf").value);
+          if (!frequency) return;
+        }
         const o = context.createOscillator();
         const g = context.createGain();
         o.connect(g);
@@ -50,12 +54,15 @@
       select,
       input {
         font-family: "Marcellus", serif;
+        font-size: 16px;
+      }
+      .num {
+        width: 5em;
       }
       div {
         padding: 10px 0;
       }
       button {
-        font-size: 16px;
         padding: 5px 15px;
         margin: 6px 4px;
         border-radius: 10px;
@@ -323,6 +330,12 @@
           >About the Angels tuning forks</a
         >
       </p>
+    </div>
+
+    <div class="fs">
+      <h2>Custom</h2>
+      <input id="cf" type="number" class="num" value="174" /> Hz
+      <button onclick="playFrequency('cf')">Play</button>
     </div>
 
     <p><br /></p>
