@@ -20,27 +20,56 @@
     />
     <script>
       const VOLUME_CURVE = [1.0, 0.61, 0.37, 0.22, 0.14, 0.08, 0.05, 0];
+      const elems = {};
+      const $ = (id) => {
+        if (!elems[id]) {
+          elems[id] = document.getElementById(id);
+        }
+        return elems[id];
+      };
+      let isPlaying = false;
+      let cb;
       let duration = 5;
       let AudioContext = window.AudioContext || window.webkitAudioContext;
-      let context = new AudioContext();
+      let context;
+      let oscillator;
 
-      const playFreq = (frequency = 440) => {
+      const playFreq = (frequency = 174) => {
         if (frequency === "cf") {
-          frequency = parseFloat("0" + document.getElementById("cf").value);
+          frequency = parseFloat("0" + $("cf").value);
           if (!frequency) return;
         }
-        const o = context.createOscillator();
+        stop();
+        toggleStop(true);
+        if (!context) {
+          context = new AudioContext();
+        }
+        oscillator = context.createOscillator();
         const g = context.createGain();
-        o.connect(g);
-        o.type = "sine";
-        o.frequency.value = frequency;
+        oscillator.connect(g);
+        oscillator.type = "sine";
+        oscillator.frequency.value = frequency;
         g.connect(context.destination);
-        o.start(0);
-        //g.gain.exponentialRampToValueAtTime(0.0001,context.currentTime + duration)
+        oscillator.start(0);
+        // g.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + duration)
         g.gain.setValueCurveAtTime(VOLUME_CURVE, context.currentTime, duration);
+        cb = setTimeout(() => toggleStop(false), duration * 1000);
       };
       const setDuration = (e) => {
         duration = parseInt(e.selectedOptions[0].value);
+      };
+      const stop = () => {
+        if (cb) {
+          clearTimeout(cb);
+        }
+        if (isPlaying && oscillator) {
+          oscillator.stop();
+        }
+        toggleStop(false);
+      };
+      const toggleStop = (isOn = false) => {
+        isPlaying = isOn;
+        $("stop").className = isOn ? "" : "noshow";
       };
     </script>
     <style>
@@ -179,6 +208,29 @@
           border-left: 8px solid black;
         }
       }
+      #stop {
+        position: absolute;
+        top: 15px;
+        left: calc(50% - 50px);
+        width: 100px;
+        padding: 10px 15px;
+        text-align: center;
+        font-size: 20px;
+        background: #b00020;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.5s;
+        > div {
+          display: inline-block;
+          background-color: white;
+          height: 16px;
+          width: 16px;
+          margin-right: 10px;
+        }
+      }
+      .noshow {
+        transform: translateY(-80px);
+      }
     </style>
   </head>
 
@@ -194,6 +246,10 @@
         <option value="120">2 minutes</option>
         <option value="180">3 minutes</option>
       </select>
+      <buton id="stop" onClick="stop()" class="noshow"
+        ><div></div>
+        STOP</buton
+      >
     </div>
     <div class="body">
       <div class="fs">
