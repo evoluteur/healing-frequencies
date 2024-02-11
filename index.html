@@ -50,7 +50,7 @@
         font-family: "Marcellus", serif;
       }
       body {
-        padding: 0;
+        margin: 0 8px;
       }
       html,
       button,
@@ -108,9 +108,6 @@
           color: white;
         }
       }
-      button.play {
-        padding-left: 15px;
-      }
       select {
         position: absolute;
         top: 20px;
@@ -122,15 +119,16 @@
         padding: 4px 5px;
       }
       .footer {
-        margin: 20px 0 10px 20px;
+        margin: 20px 0 20px 20px;
+        color: #c6d9f0;
+      }
+      p {
         color: #c6d9f0;
       }
       a {
-        text-decoration: none;
         color: #c6d9f0;
         transition: color 0.5s 0.05s;
         &:hover {
-          text-decoration: underline;
           color: white;
         }
       }
@@ -166,6 +164,20 @@
       }
       .c7:hover > span {
         background-color: #9c27b0;
+      }
+
+      .play {
+        padding-left: 15px;
+        > div {
+          position: relative;
+          top: 2px;
+          display: inline-block;
+          margin-right: 4px;
+          height: 0px;
+          border-top: 8px solid transparent;
+          border-bottom: 8px solid transparent;
+          border-left: 8px solid black;
+        }
       }
     </style>
   </head>
@@ -214,11 +226,12 @@
           <span> 963 Hz</span> Increased positive energy and clarity
         </button>
         <p>
+          About the
           <a
             href="https://ouraring.com/blog/the-benefits-of-the-9-solfeggio-frequencies/"
             target="_blank"
             rel="noopener"
-            >About the Solfeggio frequencies</a
+            >Solfeggio frequencies</a
           >
         </p>
       </div>
@@ -241,11 +254,12 @@
         </button>
 
         <p>
+          About the
           <a
             href="https://lotsofzen.com/blogs/news/tuning-fork-healing-with-sound-therapy"
             target="_blank"
             rel="noopener"
-            >About healing tuning forks</a
+            >healing tuning forks</a
           >
         </p>
       </div>
@@ -278,17 +292,18 @@
         <button onclick="playFreq(324)"><span>324 Hz</span> Muscles</button>
         <button onclick="playFreq(418.3)"><span>418.3 Hz</span> Bone</button>
         <p>
+          About the
           <a
             href="https://www.lambdoma.com/music-gift.html"
             target="_blank"
             rel="noopener"
-            >About the organs frequencies</a
+            >organs frequencies</a
           >
         </p>
       </div>
 
       <div class="fs">
-        <h2>Mineral Nutrients</h2>
+        <h2>Mineral nutrients</h2>
         <button onclick="playFreq(272)">
           <span> 272 Hz</span> Selenium and Chlorine
         </button>
@@ -308,11 +323,12 @@
         <button onclick="playFreq(352)"><span>352 Hz</span> Sodium</button>
         <button onclick="playFreq(256)"><span>256 Hz</span> Sulphur</button>
         <p>
+          About the
           <a
             href="https://www.lambdoma.com/music-gift.html"
             target="_blank"
             rel="noopener"
-            >About the mineral nutrients frequencies</a
+            >mineral nutrients frequencies</a
           >
         </p>
       </div>
@@ -344,11 +360,12 @@
           <span>272.2 Hz</span> Soul
         </button>
         <p>
+          About the
           <a
             href="https://www.castastone.com/blogs/cast-a-stone-blog/the-ultimate-guide-to-chakra-tuning-forks-unlock-the-healing-power-of-sound"
             target="_blank"
             rel="noopener"
-            >About the Chakra frequencies</a
+            >Chakras frequencies</a
           >
         </p>
 
@@ -375,17 +392,18 @@
           <span>963 Hz</span> Crown (Sahasrara)
         </button>
         <p>
+          About the
           <a
             href="https://chakrapractice.com/what-are-chakra-frequencies-ultimate-guide/"
             target="_blank"
             rel="noopener"
-            >About the Solfeggio based Chakras frequencies</a
+            >Solfeggio based Chakras frequencies</a
           >
         </p>
       </div>
 
       <div class="fs">
-        <h2>Cosmic Octave</h2>
+        <h2>Cosmic octave</h2>
         <button onclick="playFreq(194.18)"><span>194.18 Hz</span> Earth</button>
         <button onclick="playFreq(210.42)"><span>210.42 Hz</span> Moon</button>
         <button onclick="playFreq(126.22)"><span>126.22 Hz</span> Sun</button>
@@ -408,11 +426,12 @@
         </button>
         <button onclick="playFreq(140.25)"><span>140.25 Hz</span> Pluto</button>
         <p>
+          About the
           <a
             href="https://www.planetware.de/octave/"
             target="_blank"
             rel="noopener"
-            >About the Cosmic Octave</a
+            >Cosmic octave</a
           >
         </p>
       </div>
@@ -426,13 +445,14 @@
         <button onclick="playFreq(128)">
           <span>128 Hz</span> Joints mobility
         </button>
+        <p>32 Hz is too low to play on computer and 64Hz is barly audible.</p>
         <p>
-          32 Hz is too low to play on computer and 64Hz is barly audible.<br /><br />
+          About the
           <a
             href="https://soundwellness.com/tuning-forks/otto-forks/"
             target="_blank"
             rel="noopener"
-            >About the Otto tuning forks</a
+            >Otto tuning forks</a
           >
         </p>
       </div>
@@ -449,11 +469,12 @@
           <span> 4225 Hz</span> Stairway to Heaven
         </button>
         <p>
+          About the
           <a
             href="https://energyinbalance.com.au/tuning-fork/"
             target="_blank"
             rel="noopener"
-            >About the Angels tuning forks</a
+            >Angels tuning forks</a
           >
         </p>
       </div>
@@ -461,12 +482,25 @@
       <div class="fs">
         <h2>Custom</h2>
         <input id="cf" type="number" class="num" value="174" /> Hz &nbsp;
-        <button onclick="playFreq('cf')" class="play">Play</button>
+        <button onclick="playFreq('cf')" class="play">
+          <div></div>
+          PLAY
+        </button>
       </div>
     </div>
 
     <p class="footer">
-      © 2024 <a href="https://evoluteur.github.io/">Olivier Giulieri</a>
+      Open Source at
+      <a
+        href="https://github.com/evoluteur/healing-frequencies"
+        target="og"
+        rel="noopener"
+        >GitHub</a
+      >
+      - © 2024
+      <a href="https://evoluteur.github.io/" target="og" rel="noopener"
+        >Olivier Giulieri</a
+      >
     </p>
   </body>
 </html>
