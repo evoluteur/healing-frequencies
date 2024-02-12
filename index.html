@@ -73,6 +73,15 @@
         isPlaying = isOn;
         $("stop").className = isOn ? "" : "noshow";
         $("title").innerHTML = isOn ? f + " Hz" : "Healing Frequencies";
+        const p = $("progress");
+        p.style.transition = "";
+        p.style.width = 0;
+        if (isOn) {
+          setTimeout(() => {
+            p.style.transition = "width " + duration + "s linear";
+            p.style.width = "100%";
+          }, 0);
+        }
       };
       const init = () => {
         const d = localStorage.getItem("hfreq-duration");
@@ -241,11 +250,23 @@
       .noshow {
         transform: translateY(-80px);
       }
+
+      #progress {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 14px;
+        width: 0;
+        background-color: white;
+        opacity: 0.3;
+        border-radius: 1px;
+      }
     </style>
   </head>
 
   <body onload="init()">
     <div class="header">
+      <div id="progress"></div>
       <h1 id="title">Healing Frequencies</h1>
       <select onchange="setDuration(this)" id="duration">
         <option value="5">5 seconds</option>
