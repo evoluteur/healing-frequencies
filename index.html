@@ -58,6 +58,7 @@
       };
       const setDuration = (e) => {
         duration = parseInt(e.selectedOptions[0].value);
+        localStorage.setItem("hfreq-duration", duration);
       };
       const stop = () => {
         if (cb) {
@@ -72,6 +73,13 @@
         isPlaying = isOn;
         $("stop").className = isOn ? "" : "noshow";
         $("title").innerHTML = isOn ? f + " Hz" : "Healing Frequencies";
+      };
+      const init = () => {
+        const d = localStorage.getItem("hfreq-duration");
+        if (d) {
+          duration = parseInt(d);
+          $("duration").value = d;
+        }
       };
     </script>
     <style>
@@ -236,7 +244,7 @@
     </style>
   </head>
 
-  <body>
+  <body onload="init()">
     <div class="header">
       <h1 id="title">Healing Frequencies</h1>
       <select onchange="setDuration(this)" id="duration">
