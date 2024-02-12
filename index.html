@@ -41,7 +41,7 @@
           if (!frequency) return;
         }
         stop();
-        toggleStop(true);
+        toggleStop(true, frequency);
         if (!context) {
           context = new AudioContext();
         }
@@ -68,9 +68,10 @@
         }
         toggleStop(false);
       };
-      const toggleStop = (isOn = false) => {
+      const toggleStop = (isOn = false, f) => {
         isPlaying = isOn;
         $("stop").className = isOn ? "" : "noshow";
+        $("title").innerHTML = isOn ? f + " Hz" : "Healing Frequencies";
       };
     </script>
     <style>
@@ -237,7 +238,7 @@
 
   <body>
     <div class="header">
-      <h1>Healing Frequencies</h1>
+      <h1 id="title">Healing Frequencies</h1>
       <select onchange="setDuration(this)" id="duration">
         <option value="5">5 seconds</option>
         <option value="10">10 seconds</option>
