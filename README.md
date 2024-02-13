@@ -1,6 +1,6 @@
 # Healing-Frequencies
 
-Simple web page to play the frequencies of various sets of healing tuning forks: Solfeggio, Organs, Mineral Nutrients, Chakras, Cosmic Octave, Otto, and Angels.
+Simple web page to play the frequencies of various sets of healing tuning forks: Solfeggio, Organs, Mineral Nutrients, Ohm, Chakras, Cosmic Octave, Otto, Angels...
 
 [Check it out](https://evoluteur.github.io/healing-frequencies/)
 
