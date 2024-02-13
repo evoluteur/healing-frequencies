@@ -39,6 +39,7 @@
         if (frequency === "cf") {
           frequency = parseFloat("0" + $("cf").value);
           if (!frequency) return;
+          localStorage.setItem("hfreq-cf", frequency);
         }
         stop();
         toggleStop(true, frequency);
@@ -88,6 +89,10 @@
         if (d) {
           duration = parseInt(d);
           $("duration").value = d;
+        }
+        const cf = localStorage.getItem("hfreq-cf");
+        if (cf) {
+          $("cf").value = cf;
         }
       };
     </script>
@@ -438,7 +443,6 @@
           >
         </p>
         <h3>Special mineral nutrients</h3>
-
         <button onclick="playFreq(316)"><span>316 Hz</span> Gold</button>
         <button onclick="playFreq(376)"><span>376 Hz</span> Silver</button>
         <button onclick="playFreq(312)"><span>312 Hz</span> Platinum</button>
