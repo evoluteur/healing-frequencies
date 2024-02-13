@@ -227,6 +227,9 @@
           border-left: 8px solid black;
         }
       }
+      .play:hover {
+        background-color: #a5d6a7;
+      }
       #stop {
         position: absolute;
         top: 15px;
@@ -235,10 +238,10 @@
         padding: 10px 15px;
         text-align: center;
         font-size: 20px;
-        background: #b00020;
+        background-color: #b71c1c;
         border-radius: 10px;
         cursor: pointer;
-        transition: transform 0.5s;
+        transition: transform 0.5s, background-color 0.5s;
         > div {
           display: inline-block;
           background-color: white;
@@ -246,6 +249,9 @@
           width: 16px;
           margin-right: 10px;
         }
+      }
+      #stop:hover {
+        background-color: #e53935;
       }
       .noshow {
         transform: translateY(-80px);
