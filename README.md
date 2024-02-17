@@ -1,6 +1,6 @@
 # Healing-Frequencies
 
-Simple web page to play the frequencies of various sets of healing tuning forks: Solfeggio, Organs, Mineral nutrients, Ohm, Chakras, Cosmic Octave, Otto, Nikola Tesla 3-6-9, Angels... or custom frequencies.
+Simple web page to play the frequencies of various sets of healing tuning forks: Solfeggio, Organs, Mineral nutrients, Ohm, Chakras, Cosmic Octave, Otto, Nikola Tesla 3-6-9, DNA nucleotides, Angels... or custom.
 
 - [Play healing frequencies](https://evoluteur.github.io/healing-frequencies/)
 - [Visualize the frequency scale](https://evoluteur.github.io/healing-frequencies/healing-frequencies-scale.html)
