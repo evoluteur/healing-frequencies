@@ -14,7 +14,7 @@
     />
     <meta
       name="description"
-      content="Virtual tuning forks for healing: Solfeggio, Organs, Mineral Nutrients, Ohm, Chakras, Cosmic Octave, Otto, Tesla, and Angels."
+      content="Virtual tuning forks for healing: Solfeggio, Organs, Mineral nutrients, Ohm, Chakras, Cosmic Octave, Otto, Tesla, Angels..."
     />
     <link
       rel="stylesheet"
@@ -73,7 +73,7 @@
       };
       const toggleStop = (isOn = false, f) => {
         isPlaying = isOn;
-        $("stop").className = isOn ? "" : "noshow";
+        $('header').className = isOn ? "" : "w-nav";
         $("title").innerHTML = isOn ? f + " Hz" : "Healing Frequencies";
         const p = $("progress");
         p.style.transition = "";
@@ -102,6 +102,8 @@
         color: white;
         background: #0288d1 url("spirals.png");
         font-family: "Marcellus", serif;
+        font-size: 16px;
+        scroll-behavior: smooth;
       }
       body {
         margin: 0 8px;
@@ -120,14 +122,74 @@
       h3 {
         margin-top: 40px;
       }
-      .header {
+      p {
+        color: #c6d9f0;
+      }
+      a {
+        color: #c6d9f0;
+        transition: color 0.5s 0.05s;
+        &:hover {
+          color: white;
+        }
+      }
+      :target {
+        scroll-margin-top: 100px;
+      }
+      #scale {
+        display: none;
+        margin-left: 20px;
+        position: relative;
+        top: -3px;
+        color: #ffb74d;
+        > a {
+          text-decoration: none;
+        }
+      }
+      #header {
         position: sticky;
         top: 0;
+        height: 70px;
+        transition: height .3s .2s;
+        overflow: hidden;
         background: #0288d1 url("spirals.png");
         border-bottom: 1px solid #c6d9f0;
         padding-top: 5px;
+        z-index: 100;
+        .nav {
+          position: absolute;
+          bottom:-20px;
+          left:10px;
+          transition: bottom .4s .5s;
+          white-space: nowrap;
+          > a {
+            margin-right: 10px;
+            text-decoration: none;
+            &:hover {
+              color: #ffb74d;
+            }
+          }
+        }
+        &.w-nav {
+          &:hover {
+            height: 80px;
+            .nav{
+              bottom: 2px;
+            }
+          }
+          #scale {
+            display: inline-block;
+          }
+          #stop{
+            transform: translateY(-80px);
+          }
+        }
+        a:hover {
+          color: #ffb74d;
+        }
+
       }
       .body {
+        position: relative;
         padding: 0 10px 20px;
       }
       .num {
@@ -173,57 +235,64 @@
         padding: 4px 5px;
       }
       .footer {
-        margin: 20px 0 20px 20px;
+        margin: 80vh 0 20px 20px;
         color: #c6d9f0;
-      }
-      p {
-        color: #c6d9f0;
-      }
-      a {
-        color: #c6d9f0;
-        transition: color 0.5s 0.05s;
+        transition: color .5s ;
+        > p {
+          transition: color .5s ;
+          > a {
+          transition: color .5s ;
+          }
+        }
         &:hover {
-          color: white;
+          > p {
+            color: white;
+            > a {
+              color: #ffb74d;
+            }
+          }
         }
       }
       .fs {
+        position: relative;
+        top: 40px;
         border-left: 3px solid #c6d9f0;
-        margin: 30px 0 50px;
+        margin: 0 0 50px;
         padding: 0 0 5px 20px;
       }
-
-      .c0:hover > span {
-        background-color: grey;
+      #chakras {
+        > .c0:hover > span {
+          background-color: grey;
+        }
+        > .c1:hover > span {
+          background-color: #e57373;
+        }
+        > .c2:hover > span {
+          background-color: #ffb74d;
+          color: black;
+        }
+        > .c3:hover > span {
+          background-color: #ffd54f;
+          color: black;
+        }
+        > .c4:hover > span {
+          background-color: #81c784;
+        }
+        > .c5:hover > span {
+          background-color: #4dd0e1;
+          color: black;
+        }
+        > .c6:hover > span {
+          background-color: #324399;
+        }
+        > .c7:hover > span {
+          background-color: #9c27b0;
+        }
+        > .c8:hover > span {
+          background-color: white;
+          color: #9c27b0;
+        }
       }
-      .c1:hover > span {
-        background-color: #e57373;
-      }
-      .c2:hover > span {
-        background-color: #ffb74d;
-        color: black;
-      }
-      .c3:hover > span {
-        background-color: #ffd54f;
-        color: black;
-      }
-      .c4:hover > span {
-        background-color: #81c784;
-      }
-      .c5:hover > span {
-        background-color: #4dd0e1;
-        color: black;
-      }
-      .c6:hover > span {
-        background-color: #324399;
-      }
-      .c7:hover > span {
-        background-color: #9c27b0;
-      }
-      .c8:hover > span {
-        background-color: white;
-        color: #9c27b0;
-      }
-
       .play {
         padding-left: 15px;
         > div {
@@ -263,10 +332,6 @@
       #stop:hover {
         background-color: #e53935;
       }
-      .noshow {
-        transform: translateY(-80px);
-      }
-
       #progress {
         position: absolute;
         left: 0;
@@ -281,9 +346,12 @@
   </head>
 
   <body onload="init()">
-    <div class="header">
+    <header id="header" class="w-nav">
       <div id="progress"></div>
       <h1 id="title">Healing Frequencies</h1>
+      <div id="scale">
+        <a href="healing-frequencies-scale.html">Scale</a>
+      </div>
       <select onchange="setDuration(this)" id="duration">
         <option value="5">5 seconds</option>
         <option value="10">10 seconds</option>
@@ -293,13 +361,28 @@
         <option value="120">2 minutes</option>
         <option value="180">3 minutes</option>
       </select>
-      <buton id="stop" onClick="stop()" class="noshow"
+      <buton id="stop" onClick="stop()"
         ><div></div>
         STOP</buton
       >
-    </div>
+      <div class="nav">
+        <a href="#solfeggio">Solfeggio</a>
+        <a href="#healing">Healing</a>
+        <a href="#organs">Organs</a>
+        <a href="#minerals">Minerals</a>
+        <a href="#ohm">Ohm</a>
+        <a href="#chakras">Chakras</a>
+        <a href="#dna">DNA</a>
+        <a href="#tesla">Tesla</a>
+        <a href="#cosmic">Cosmic</a>
+        <a href="#otto">Otto</a>
+        <a href="#angels">Angels</a>
+        <a href="#custom">Custom</a>
+      </div>
+    </header>
+
     <div class="body">
-      <div class="fs">
+      <div class="fs" id="solfeggio">
         <h2>Solfeggio</h2>
         <button onclick="playFreq(174)">
           <span> 174 Hz</span> Physical pain relief and stress relief
@@ -349,7 +432,7 @@
         </p>
       </div>
 
-      <div class="fs">
+      <div class="fs" id="healing">
         <h2>Healing</h2>
         <button onclick="playFreq(128)">
           <span> 128 Hz</span> Blood circulation, sleep, and stress relief
@@ -377,7 +460,7 @@
         </p>
       </div>
 
-      <div class="fs">
+      <div class="fs" id="organs">
         <h2>Organs</h2>
         <button onclick="playFreq(321.9)"><span>321.9 Hz</span> Blood</button>
         <button onclick="playFreq(492.8)">
@@ -415,7 +498,7 @@
         </p>
       </div>
 
-      <div class="fs">
+      <div class="fs" id="minerals">
         <h2>Mineral nutrients</h2>
         <button onclick="playFreq(272)">
           <span> 272 Hz</span> Selenium and Chlorine
@@ -450,7 +533,7 @@
         <button onclick="playFreq(448)"><span>448 Hz</span> Silica</button>
       </div>
 
-      <div class="fs">
+      <div class="fs" id="ohm">
         <h2>Ohm</h2>
         <button onclick="playFreq(68.05)"><span>68.05 Hz</span> Low Ohm</button>
         <button onclick="playFreq(136.1)"><span>136.1 Hz</span> Mid Ohm</button>
@@ -462,7 +545,7 @@
         </button>
       </div>
 
-      <div class="fs">
+      <div class="fs" id="chakras">
         <h2>Chakras</h2>
         <button onclick="playFreq(68.05)" class="c0">
           <span> 68.05 Hz</span> Earth star (Vasundhara)
@@ -502,7 +585,7 @@
         </p>
       </div>
 
-      <div class="fs">
+      <div class="fs" id="dna">
         <h2>DNA nucleotides</h2>
         <button onclick="playFreq(537.8)">
           <span>537.8 Hz</span> Cytocine
@@ -512,7 +595,7 @@
         <button onclick="playFreq(550)"><span>550 Hz</span> Guanine</button>
       </div>
 
-      <div class="fs">
+      <div class="fs" id="tesla">
         <h2>Nikola Tesla 3-6-9</h2>
         <button onclick="playFreq(333)">
           <span>333 Hz</span> Healing, balance, and harmony
@@ -526,7 +609,7 @@
         </button>
       </div>
 
-      <div class="fs">
+      <div class="fs" id="cosmic">
         <h2>Cosmic octave</h2>
         <button onclick="playFreq(194.18)"><span>194.18 Hz</span> Earth</button>
         <button onclick="playFreq(210.42)"><span>210.42 Hz</span> Moon</button>
@@ -560,7 +643,7 @@
         </p>
       </div>
 
-      <div class="fs">
+      <div class="fs" id="otto">
         <h2>Ostheopathic (Otto)</h2>
         <button onclick="playFreq(32)"><span>32 Hz</span> Immune system</button>
         <button onclick="playFreq(64)">
@@ -581,7 +664,7 @@
         </p>
       </div>
 
-      <div class="fs">
+      <div class="fs" id="angels">
         <h2>Angels</h2>
         <button onclick="playFreq(4096)">
           <span>4096 Hz</span> Jacob's ladder
@@ -592,15 +675,6 @@
         <button onclick="playFreq(4225)">
           <span> 4225 Hz</span> Stairway to heaven
         </button>
-        <p>
-          About the
-          <a
-            href="https://energyinbalance.com.au/tuning-fork/"
-            target="_blank"
-            rel="noopener"
-            >angels tuning forks</a
-          >
-        </p>
 
         <h3>Numerology based</h3>
         <button onclick="playFreq(111)">
@@ -641,7 +715,7 @@
         </p>
       </div>
 
-      <div class="fs">
+      <div class="fs" id="custom">
         <h2>Custom</h2>
         <input id="cf" type="number" class="num" value="174" /> Hz &nbsp;
         <button onclick="playFreq('cf')" class="play">
@@ -651,22 +725,27 @@
       </div>
     </div>
 
-    <p class="footer">
-      Look at a visual representation of these
-      <a href="healing-frequencies-scale.html">frequencies on a scale</a>.
-    </p>
-    <p class="footer">
-      Open Source at
-      <a
-        href="https://github.com/evoluteur/healing-frequencies"
-        target="og"
-        rel="noopener"
-        >GitHub</a
-      >
-      - © 2024
-      <a href="https://evoluteur.github.io/" target="og" rel="noopener"
-        >Olivier Giulieri</a
-      >
-    </p>
+    <div class="footer">
+      <p>
+        Look at a visual representation of these
+        <a href="healing-frequencies-scale.html">frequencies on a scale</a>.
+      </p>
+      <p>
+        Open Source at
+        <a
+          href="https://github.com/evoluteur/healing-frequencies"
+          target="og"
+          rel="noopener"
+          >GitHub</a> with  MIT license.
+
+      </p>
+        <p>
+          © 2024
+        <a href="https://evoluteur.github.io/" target="og" rel="noopener"
+          >Olivier Giulieri</a
+        >
+        </p>
+      </p>
+    </div>
   </body>
 </html>

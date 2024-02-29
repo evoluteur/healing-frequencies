@@ -14,7 +14,7 @@
     />
     <meta
       name="description"
-      content="Healing frequencies scale: Solfeggio, Organs, Mineral Nutrients, Ohm, Chakras, Cosmic Octave, Otto, Tesla 3-6-9, and Angels."
+      content="Healing frequencies scale: Solfeggio, Organs, Mineral nutrients, Ohm, Chakras, Cosmic Octave, Otto, Tesla 3-6-9, Angels..."
     />
     <link
       rel="stylesheet"
@@ -31,10 +31,6 @@
       h1 {
         margin: 15px 10px 50px;
       }
-      .footer {
-        margin: 20px 0 20px 20px;
-        color: #c6d9f0;
-      }
       p {
         color: #c6d9f0;
       }
@@ -43,6 +39,25 @@
         transition: color 0.5s 0.05s;
         &:hover {
           color: white;
+        }
+      }
+      .footer {
+        margin: 80vh 0 20px 20px;
+        color: #c6d9f0;
+        transition: color 0.5s;
+        > p {
+          transition: color 0.5s;
+          > a {
+            transition: color 0.5s;
+          }
+        }
+        &:hover {
+          > p {
+            color: white;
+            > a {
+              color: #ffb74d;
+            }
+          }
         }
       }
       #fs {
@@ -57,6 +72,13 @@
           padding: 4px 6px;
           border: solid 1px white;
           border-radius: 2px;
+          > a {
+            color: #fbd5b5;
+            text-decoration: none;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
         }
         > .freq {
           left: 100px;
@@ -115,13 +137,19 @@
         position: absolute;
         top: 20px;
         right: 20px;
+        color: #fbd5b5;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     </style>
   </head>
 
   <body>
     <h1>Healing Frequencies Scale</h1>
-    <a href="index.html" class="play">Play frequencies</a>
+
+    <a href="index.html" class="play" id="play">Play Frequencies</a>
 
     <div id="fs">
       <div class="axis"></div>
@@ -130,322 +158,463 @@
       </div>
       <div class="dot" style="top: 88px"></div>
       <div class="freq" style="top: 78px">7.83 Hz</div>
-      <div class="txt" style="top: 315px">Otto: Immune system</div>
+      <div class="txt" style="top: 315px">
+        <a href="index.html#otto">Otto</a>: Immune system
+      </div>
       <div class="dot" style="top: 330px"></div>
       <div class="freq" style="top: 320px">32 Hz</div>
-      <div class="txt" style="top: 635px">Otto: Nervous system</div>
+      <div class="txt" style="top: 635px">
+        <a href="index.html#otto">Otto</a>: Nervous system
+      </div>
       <div class="dot" style="top: 410px"></div>
       <div class="freq" style="top: 400px">40 Hz</div>
       <div class="txt" style="top: 395px">Brain: Memory and cognition</div>
       <div class="dot" style="top: 650px"></div>
       <div class="freq" style="top: 640px">64 Hz</div>
-      <div class="txt" style="top: 675px">Ohm: Low Ohm</div>
+      <div class="txt" style="top: 675px">
+        <a href="index.html#ohm">Ohm</a>: Low Ohm
+      </div>
       <div class="dot" style="top: 690px"></div>
       <div class="freq" style="top: 680px">68.05 Hz</div>
       <div class="txt" style="top: 675px; left: 336px">
-        Chakra: Earth star (Vasundhara)
+        <a href="index.html#chakras">Chakra</a>: Earth star (Vasundhara)
       </div>
-      <div class="txt" style="top: 1084px">Organ: Stomach</div>
+      <div class="txt" style="top: 1084px">
+        <a href="index.html#organs">Organ</a>: Stomach
+      </div>
       <div class="dot" style="top: 1110px"></div>
       <div class="freq" style="top: 1098px">110 Hz</div>
-      <div class="txt" style="top: 1116px">Angel: Holy frequency</div>
+      <div class="txt" style="top: 1116px">
+        <a href="index.html#angels">Angel</a>: Holy frequency
+      </div>
       <div class="dot" style="top: 1120px"></div>
       <div class="freq" style="top: 1112px">111 Hz</div>
-      <div class="txt" style="top: 1168px">Organ: Pancreas</div>
+      <div class="txt" style="top: 1168px">
+        <a href="index.html#organs">Organ</a>: Pancreas
+      </div>
       <div class="dot" style="top: 1183px"></div>
       <div class="freq" style="top: 1173px">117.3 Hz</div>
       <div class="txt" style="top: 1250px; left: 307px">
-        Chakra: Solar Plexus (Manipura)
+        <a href="index.html#chakras">Chakra</a>: Solar Plexus (Manipura)
       </div>
       <div class="dot" style="top: 1272px"></div>
       <div class="freq" style="top: 1262px">126.22 Hz</div>
-      <div class="txt" style="top: 1250px">Cosmic: Sun</div>
+      <div class="txt" style="top: 1250px">
+        <a href="index.html#cosmic">Cosmic</a>: Sun
+      </div>
       <div class="txt" style="top: 1283px; left: 365px">
-        Healing: Blood circulation, sleep, and stress relief
+        <a href="index.html#healing">Healing</a>: Blood circulation, sleep, and
+        stress relief
       </div>
       <div class="dot" style="top: 1290px"></div>
       <div class="freq" style="top: 1280px">128 Hz</div>
-      <div class="txt" style="top: 1283px">Otto: Joints mobility</div>
-      <div class="txt" style="top: 1352px">Ohm: Mid Ohm</div>
+      <div class="txt" style="top: 1283px">
+        <a href="index.html#otto">Otto</a>: Joints mobility
+      </div>
+      <div class="txt" style="top: 1352px">
+        <a href="index.html#ohm">Ohm</a>: Mid Ohm
+      </div>
       <div class="dot" style="top: 1371px"></div>
       <div class="txt" style="top: 1352px; left: 337px">
-        Chakra: Heart (Anahata)
+        <a href="index.html#chakras">Chakra</a>: Heart (Anahata)
       </div>
       <div class="freq" style="top: 1361px">136.1 Hz</div>
-      <div class="txt" style="top: 1386px">Cosmic: Pluto</div>
+      <div class="txt" style="top: 1386px">
+        <a href="index.html#cosmic">Cosmic</a>: Pluto
+      </div>
       <div class="dot" style="top: 1412px"></div>
       <div class="freq" style="top: 1396px">140.25 Hz</div>
       <div class="txt" style="top: 1418px; left: 344px">
-        Chakra: Throat (Vishuddha)
+        <a href="index.html#chakras">Chakra</a>: Throat (Vishuddha)
       </div>
       <div class="dot" style="top: 1422px"></div>
       <div class="freq" style="top: 1415px">141.27 Hz</div>
-      <div class="txt" style="top: 1418px">Cosmic: Mercury</div>
-      <div class="txt" style="top: 1450px">Cosmic: Mars</div>
+      <div class="txt" style="top: 1418px">
+        <a href="index.html#cosmic">Cosmic</a>: Mercury
+      </div>
+      <div class="txt" style="top: 1450px">
+        <a href="index.html#cosmic">Cosmic</a>: Mars
+      </div>
       <div class="dot" style="top: 1457px"></div>
       <div class="freq" style="top: 1447px">144.72 Hz</div>
-      <div class="txt" style="top: 1483px">Cosmic: Saturn</div>
+      <div class="txt" style="top: 1483px">
+        <a href="index.html#cosmic">Cosmic</a>: Saturn
+      </div>
       <div class="dot" style="top: 1488px"></div>
       <div class="freq" style="top: 1478px">147.85 Hz</div>
-      <div class="txt" style="top: 1638px">Organ: Gall Bladder</div>
+      <div class="txt" style="top: 1638px">
+        <a href="index.html#organs">Organ</a>: Gall Bladder
+      </div>
       <div class="dot" style="top: 1653px"></div>
       <div class="freq" style="top: 1643px">164.3 Hz</div>
-      <div class="txt" style="top: 1703px">Chakra: Crown (Sahasrara)</div>
+      <div class="txt" style="top: 1703px">
+        <a href="index.html#chakras">Chakra</a>: Crown (Sahasrara)
+      </div>
       <div class="dot" style="top: 1730px"></div>
       <div class="freq" style="top: 1720px">172.06 Hz</div>
       <div class="txt" style="top: 1735px">
-        Solfeggio: Physical pain relief and stress relief
+        <a href="index.html#solfeggio">Solfeggio</a>: Physical pain relief and
+        stress relief
       </div>
       <div class="dot" style="top: 1750px"></div>
       <div class="freq" style="top: 1740px">174 Hz</div>
-      <div class="txt" style="top: 1767px">Organ: Colon</div>
+      <div class="txt" style="top: 1767px">
+        <a href="index.html#organs">Organ</a>: Colon
+      </div>
       <div class="dot" style="top: 1770px"></div>
       <div class="freq" style="top: 1760px">176 Hz</div>
-      <div class="txt" style="top: 1830px">Cosmic: Jupiter</div>
+      <div class="txt" style="top: 1830px">
+        <a href="index.html#cosmic">Cosmic</a>: Jupiter
+      </div>
       <div class="dot" style="top: 1845px"></div>
       <div class="freq" style="top: 1835px">183.58 Hz</div>
       <div class="txt" style="top: 1936px; left: 317px">
-        Chakra: Root (Muladhara)
+        <a href="index.html#chakras">Chakra</a>: Root (Muladhara)
       </div>
       <div class="dot" style="top: 1951px"></div>
       <div class="freq" style="top: 1941px">194.18 Hz</div>
-      <div class="txt" style="top: 1936px">Cosmic: Earth</div>
-      <div class="txt" style="top: 2067px">Cosmic: Uranus</div>
+      <div class="txt" style="top: 1936px">
+        <a href="index.html#cosmic">Cosmic</a>: Earth
+      </div>
+      <div class="txt" style="top: 2067px">
+        <a href="index.html#cosmic">Cosmic</a>: Uranus
+      </div>
       <div class="dot" style="top: 2083px"></div>
       <div class="freq" style="top: 2073px">207.36 Hz</div>
       <div class="txt" style="top: 2099px; left: 324px">
-        Chakra: Sacral (Svadhisthana)
+        <a href="index.html#chakras">Chakra</a>: Sacral (Svadhisthana)
       </div>
       <div class="dot" style="top: 2114px"></div>
       <div class="freq" style="top: 2104px">210.42 Hz</div>
-      <div class="txt" style="top: 2099px">Cosmic: Moon</div>
-      <div class="txt" style="top: 2132px">Cosmic: Neptune</div>
+      <div class="txt" style="top: 2099px">
+        <a href="index.html#cosmic">Cosmic</a>: Moon
+      </div>
+      <div class="txt" style="top: 2132px">
+        <a href="index.html#cosmic">Cosmic</a>: Neptune
+      </div>
       <div class="dot" style="top: 2124px"></div>
       <div class="freq" style="top: 2122px">211.44 Hz</div>
-      <div class="txt" style="top: 2186px">Organ: Lungs</div>
+      <div class="txt" style="top: 2186px">
+        <a href="index.html#organs">Organ</a>: Lungs
+      </div>
       <div class="dot" style="top: 2210px"></div>
       <div class="freq" style="top: 2190px">220 Hz</div>
       <div class="txt" style="top: 2207px; left: 511px">
-        Chakra: Third Eye (Ajna)
+        <a href="index.html#chakras">Chakra</a>: Third Eye (Ajna)
       </div>
       <div class="dot" style="top: 2222px"></div>
       <div class="freq" style="top: 2212px">221.23 Hz</div>
-      <div class="txt" style="top: 2207px; left: 390px">Cosmic: Venus</div>
-      <div class="txt" style="top: 2230px">Angel: Energy balancer</div>
+      <div class="txt" style="top: 2207px; left: 390px">
+        <a href="index.html#cosmic">Cosmic</a>: Venus
+      </div>
+      <div class="txt" style="top: 2230px">
+        <a href="index.html#angels">Angel</a>: Energy balancer
+      </div>
       <div class="dot" style="top: 2230px"></div>
       <div class="freq" style="top: 2230px">222 Hz</div>
       <div class="txt" style="top: 2555px; left: 340px">
-        Healing: Cell growth, tissue regeneration, and pain relief
+        <a href="index.html#healing">Healing</a>: Cell growth, tissue
+        regeneration, and pain relief
       </div>
       <div class="dot" style="top: 2570px"></div>
       <div class="freq" style="top: 2560px">256 Hz</div>
-      <div class="txt" style="top: 2555px">Mineral: Sulphur</div>
-      <div class="txt" style="top: 2695px">Mineral: Selenium and Chlorine</div>
+      <div class="txt" style="top: 2555px">
+        <a href="index.html#minerals">Mineral</a>: Sulphur
+      </div>
+      <div class="txt" style="top: 2695px">
+        <a href="index.html#minerals">Mineral</a>: Selenium and Chlorine
+      </div>
       <div class="dot" style="top: 2730px"></div>
       <div class="freq" style="top: 2710px">272 Hz</div>
-      <div class="txt" style="top: 2727px">Ohm: High Ohm</div>
+      <div class="txt" style="top: 2727px">
+        <a href="index.html#ohm">Ohm</a>: High Ohm
+      </div>
       <div class="dot" style="top: 2732px"></div>
       <div class="freq" style="top: 2726px">272.2 Hz</div>
       <div class="txt" style="top: 2727px; left: 337px">
-        Chakra: Soul star (Vyapini)
+        <a href="index.html#chakras">Chakra</a>: Soul star (Vyapini)
       </div>
-      <div class="txt" style="top: 2805px">Organ: Intestines</div>
+      <div class="txt" style="top: 2805px">
+        <a href="index.html#organs">Organ</a>: Intestines
+      </div>
       <div class="dot" style="top: 2820px"></div>
       <div class="freq" style="top: 2810px">281 Hz</div>
       <div class="txt" style="top: 2845px">
-        Solfeggio: Tissue restauration and healing
+        <a href="index.html#solfeggio">Solfeggio</a>: Tissue restauration and
+        healing
       </div>
       <div class="dot" style="top: 2860px"></div>
       <div class="freq" style="top: 2850px">285 Hz</div>
-      <div class="txt" style="top: 2953px">Organ: Fat Cells</div>
+      <div class="txt" style="top: 2953px">
+        <a href="index.html#organs">Organ</a>: Fat Cells
+      </div>
       <div class="dot" style="top: 2968px"></div>
       <div class="freq" style="top: 2958px">295.8 Hz</div>
-      <div class="txt" style="top: 3035px">Mineral: Potassium</div>
+      <div class="txt" style="top: 3035px">
+        <a href="index.html#minerals">Mineral</a>: Potassium
+      </div>
       <div class="dot" style="top: 3050px"></div>
       <div class="freq" style="top: 3040px">304 Hz</div>
-      <div class="txt" style="top: 3115px">Mineral: Platinum</div>
+      <div class="txt" style="top: 3115px">
+        <a href="index.html#minerals">Mineral</a>: Platinum
+      </div>
       <div class="dot" style="top: 3130px"></div>
       <div class="freq" style="top: 3120px">312 Hz</div>
-      <div class="txt" style="top: 3147px; left: 323px">Organ: Brain</div>
+      <div class="txt" style="top: 3147px; left: 323px">
+        <a href="index.html#organs">Organ</a>: Brain
+      </div>
       <div class="dot" style="top: 3168px"></div>
       <div class="freq" style="top: 3147px">315.8 Hz</div>
-      <div class="txt" style="top: 3155px">Mineral: Gold</div>
+      <div class="txt" style="top: 3155px">
+        <a href="index.html#minerals">Mineral</a>: Gold
+      </div>
       <div class="dot" style="top: 3170px"></div>
       <div class="freq" style="top: 3160px">316 Hz</div>
-      <div class="txt" style="top: 3176px; left: 331px">Organ: Liver</div>
+      <div class="txt" style="top: 3176px; left: 331px">
+        <a href="index.html#organs">Organ</a>: Liver
+      </div>
       <div class="dot" style="top: 3188px"></div>
       <div class="freq" style="top: 3178px">317.83 Hz</div>
-      <div class="txt" style="top: 3193px">Organ: Kidneys</div>
+      <div class="txt" style="top: 3193px">
+        <a href="index.html#organs">Organ</a>: Kidneys
+      </div>
       <div class="dot" style="top: 3208px"></div>
       <div class="freq" style="top: 3197px; left: 29px">319.88 Hz</div>
-      <div class="txt" style="top: 3195px; left: 468px">Mineral: Calcium</div>
+      <div class="txt" style="top: 3195px; left: 468px">
+        <a href="index.html#minerals">Mineral</a>: Calcium
+      </div>
       <div class="dot" style="top: 3210px"></div>
       <div class="freq" style="top: 3200px">320 Hz</div>
-      <div class="txt" style="top: 3214px; left: 346px">Organ: Blood</div>
+      <div class="txt" style="top: 3214px; left: 346px">
+        <a href="index.html#organs">Organ</a>: Blood
+      </div>
       <div class="dot" style="top: 3229px"></div>
       <div class="freq" style="top: 3219px">321.9 Hz</div>
-      <div class="txt" style="top: 3244px">Organ: Muscles</div>
+      <div class="txt" style="top: 3244px">
+        <a href="index.html#organs">Organ</a>: Muscles
+      </div>
       <div class="dot" style="top: 3250px"></div>
       <div class="freq" style="top: 3240px">324 Hz</div>
       <div class="txt" style="top: 3325px">
-        Tesla: Healing, balance, and harmony
+        <a href="index.html#tesla">Tesla</a>: Healing, balance, and harmony
       </div>
       <div class="dot" style="top: 3340px"></div>
       <div class="freq" style="top: 3330px">333 Hz</div>
       <div class="txt" style="top: 3325px; left: 485px">
-        Angel: Angelic frequency
+        <a href="index.html#angels">Angel</a>: Angelic frequency
       </div>
-      <div class="txt" style="top: 3357px">Mineral: Molybdenum</div>
+      <div class="txt" style="top: 3357px">
+        <a href="index.html#minerals">Mineral</a>: Molybdenum
+      </div>
       <div class="dot" style="top: 3370px"></div>
       <div class="freq" style="top: 3360px">336 Hz</div>
-      <div class="txt" style="top: 3405px">Mineral: Magnesium</div>
+      <div class="txt" style="top: 3405px">
+        <a href="index.html#minerals">Mineral</a>: Magnesium
+      </div>
       <div class="dot" style="top: 3420px"></div>
       <div class="freq" style="top: 3410px">341 Hz</div>
-      <div class="txt" style="top: 3515px">Organ: Bladder</div>
+      <div class="txt" style="top: 3515px">
+        <a href="index.html#organs">Organ</a>: Bladder
+      </div>
       <div class="dot" style="top: 3530px"></div>
       <div class="freq" style="top: 3520px">352 Hz</div>
-      <div class="txt" style="top: 3515px; left: 337px">Mineral: Sodium</div>
-      <div class="txt" style="top: 3755px">Mineral: Silver</div>
+      <div class="txt" style="top: 3515px; left: 337px">
+        <a href="index.html#minerals">Mineral</a>: Sodium
+      </div>
+      <div class="txt" style="top: 3755px">
+        <a href="index.html#minerals">Mineral</a>: Silver
+      </div>
       <div class="dot" style="top: 3770px"></div>
       <div class="freq" style="top: 3760px">376 Hz</div>
-      <div class="txt" style="top: 3835px">Mineral: Chromium</div>
+      <div class="txt" style="top: 3835px">
+        <a href="index.html#minerals">Mineral</a>: Chromium
+      </div>
       <div class="dot" style="top: 3850px"></div>
       <div class="freq" style="top: 3840px">384 Hz</div>
       <div class="txt" style="top: 3955px">
-        Solfeggio: Guilt and fear diminishment
+        <a href="index.html#solfeggio">Solfeggio:</a> Guilt and fear
+        diminishment
       </div>
       <div class="dot" style="top: 3970px"></div>
       <div class="freq" style="top: 3960px">396 Hz</div>
-      <div class="txt" style="top: 3995px">Mineral: Manganese</div>
+      <div class="txt" style="top: 3995px">
+        <a href="index.html#minerals">Mineral</a>: Manganese
+      </div>
       <div class="dot" style="top: 4010px"></div>
       <div class="freq" style="top: 4000px">400 Hz</div>
-      <div class="txt" style="top: 4151px">Mineral: Iron</div>
+      <div class="txt" style="top: 4151px">
+        <a href="index.html#minerals">Mineral</a>: Iron
+      </div>
       <div class="dot" style="top: 4170px"></div>
       <div class="freq" style="top: 4156px">416 Hz</div>
       <div class="txt" style="top: 4165px; left: 316px">
-        Solfeggio: Trauma healing
+        <a href="index.html#solfeggio">Solfeggio:</a> Trauma healing
       </div>
       <div class="dot" style="top: 4180px"></div>
       <div class="freq" style="top: 4170px">417 Hz</div>
-      <div class="txt" style="top: 4183px">Organ: Bone</div>
+      <div class="txt" style="top: 4183px">
+        <a href="index.html#organs">Organ</a>: Bone
+      </div>
       <div class="dot" style="top: 4193px"></div>
       <div class="freq" style="top: 4188px">418.3 Hz</div>
-      <div class="txt" style="top: 4235px">Mineral: Iodine</div>
+      <div class="txt" style="top: 4235px">
+        <a href="index.html#minerals">Mineral</a>: Iodine
+      </div>
       <div class="dot" style="top: 4250px"></div>
       <div class="freq" style="top: 4240px">424 Hz</div>
-      <div class="txt" style="top: 4435px">Angel: Spiritual detoxer</div>
+      <div class="txt" style="top: 4435px">
+        <a href="index.html#angels">Angel</a>: Spiritual detoxer
+      </div>
       <div class="dot" style="top: 4330px"></div>
       <div class="freq" style="top: 4320px">432 Hz</div>
       <div class="txt" style="top: 4315px">Verdi's A</div>
       <div class="dot" style="top: 4450px"></div>
       <div class="freq" style="top: 4440px">444 Hz</div>
-      <div class="txt" style="top: 4475px">Mineral: Silica</div>
+      <div class="txt" style="top: 4475px">
+        <a href="index.html#minerals">Mineral</a>: Silica
+      </div>
       <div class="dot" style="top: 4490px"></div>
       <div class="freq" style="top: 4480px">448 Hz</div>
-      <div class="txt" style="top: 4635px">Mineral: Copper</div>
+      <div class="txt" style="top: 4635px">
+        <a href="index.html#minerals">Mineral</a>: Copper
+      </div>
       <div class="dot" style="top: 4650px"></div>
       <div class="freq" style="top: 4640px">464 Hz</div>
-      <div class="txt" style="top: 4795px">Mineral: Phosphorus and Zinc</div>
+      <div class="txt" style="top: 4795px">
+        <a href="index.html#minerals">Mineral</a>: Phosphorus and Zinc
+      </div>
       <div class="dot" style="top: 4810px"></div>
       <div class="freq" style="top: 4800px">480 Hz</div>
-      <div class="txt" style="top: 4923px">Organ: Adrenals</div>
+      <div class="txt" style="top: 4923px">
+        <a href="index.html#organs">Organ</a>: Adrenals
+      </div>
       <div class="dot" style="top: 4938px"></div>
       <div class="freq" style="top: 4928px">492.8 Hz</div>
       <div class="txt" style="top: 5115px">
-        Healing: Mental clarity and concentration, relaxation and sleep, and
-        stress relief
+        <a href="index.html#healing">Healing</a>: Mental clarity and
+        concentration, relaxation and sleep, and stress relief
       </div>
       <div class="dot" style="top: 5130px"></div>
       <div class="freq" style="top: 5120px">512 Hz</div>
       <div class="txt" style="top: 5275px">
-        Solfeggio: Relaxation and sleep improvemen
+        <a href="index.html#solfeggio">Solfeggio:</a> Relaxation and sleep
+        improvemen
       </div>
       <div class="dot" style="top: 5290px"></div>
       <div class="freq" style="top: 5280px">528 Hz</div>
-      <div class="txt" style="top: 5373px">DNA: Cytocine</div>
+      <div class="txt" style="top: 5373px">
+        <a href="index.html#dna">DNA</a>: Cytocine
+      </div>
       <div class="dot" style="top: 5388px"></div>
       <div class="freq" style="top: 5378px">537.8 Hz</div>
-      <div class="txt" style="top: 5426px">DNA: Thymine</div>
+      <div class="txt" style="top: 5426px">
+        <a href="index.html#dna">DNA</a>: Thymine
+      </div>
       <div class="dot" style="top: 5444px"></div>
       <div class="freq" style="top: 5429px">543.4 Hz</div>
       <div class="txt" style="top: 5439px; left: 325px">
-        Ohm: Ultra High Ohm
+        <a href="index.html#ohm">Ohm</a>: Ultra High Ohm
       </div>
       <div class="dot" style="top: 5454px"></div>
       <div class="freq" style="top: 5444px">544.4 Hz</div>
-      <div class="txt" style="top: 5458px">DNA: Adenine</div>
+      <div class="txt" style="top: 5458px">
+        <a href="index.html#dna">DNA</a>: Adenine
+      </div>
       <div class="dot" style="top: 5466px"></div>
       <div class="freq" style="top: 5460px">545.6 Hz</div>
-      <div class="txt" style="top: 5495px">DNA: Guanine</div>
+      <div class="txt" style="top: 5495px">
+        <a href="index.html#dna">DNA</a>: Guanine
+      </div>
       <div class="dot" style="top: 5510px"></div>
       <div class="freq" style="top: 5500px">550 Hz</div>
-      <div class="txt" style="top: 5545px">Angel: Divine change</div>
+      <div class="txt" style="top: 5545px">
+        <a href="index.html#angels">Angel</a>: Divine change
+      </div>
       <div class="dot" style="top: 5560px"></div>
       <div class="freq" style="top: 5550px">555 Hz</div>
       <div class="txt" style="top: 6385px">
-        Solfeggio: Improvement in mental balance
+        <a href="index.html#solfeggio">Solfeggio:</a> Improvement in mental
+        balance
       </div>
       <div class="dot" style="top: 6400px"></div>
       <div class="freq" style="top: 6390px">639 Hz</div>
       <div class="txt" style="top: 6385px; left: 525px">
-        Tesla: Relationships, connection, and communication
+        <a href="index.html#tesla">Tesla</a>: Relationships, connection, and
+        communication
       </div>
       <div class="txt" style="top: 6655px">
-        Angel: Physical/spiritual balance
+        <a href="index.html#angels">Angel</a>: Physical/spiritual balance
       </div>
       <div class="dot" style="top: 6670px"></div>
       <div class="freq" style="top: 6660px">666 Hz</div>
       <div class="txt" style="top: 7405px">
-        Solfeggio: Detoxification of the mind and body
+        <a href="index.html#solfeggio">Solfeggio:</a> Detoxification of the mind
+        and body
       </div>
       <div class="dot" style="top: 7420px"></div>
       <div class="freq" style="top: 7410px">741 Hz</div>
-      <div class="txt" style="top: 7765px">Angel: Divine sound</div>
+      <div class="txt" style="top: 7765px">
+        <a href="index.html#angels">Angel</a>: Divine sound
+      </div>
       <div class="dot" style="top: 7780px"></div>
       <div class="freq" style="top: 7770px">777 Hz</div>
       <div class="txt" style="top: 8515px">
-        Solfeggio: Nervousness and anxity relief
+        <a href="index.html#solfeggio">Solfeggio:</a> Nervousness and anxity
+        relief
       </div>
       <div class="dot" style="top: 8530px"></div>
       <div class="freq" style="top: 8520px">852 Hz</div>
-      <div class="txt" style="top: 8875px">Angel: Infinite possibilities</div>
+      <div class="txt" style="top: 8875px">
+        <a href="index.html#angels">Angel</a>: Infinite possibilities
+      </div>
       <div class="dot" style="top: 8890px"></div>
       <div class="freq" style="top: 8880px">888 Hz</div>
       <div class="txt" style="top: 9625px">
-        Solfeggio: Increased positive energy and clarity
+        <a href="index.html#solfeggio">Solfeggio:</a> Increased positive energy
+        and clarity
       </div>
       <div class="dot" style="top: 9640px"></div>
       <div class="freq" style="top: 9630px">963 Hz</div>
       <div class="txt" style="top: 9985px; left: 429px">
-        Tesla: Spiritual awakening, divine connection, and transformation
+        <a href="index.html#tesla">Tesla</a>: Spiritual awakening, divine
+        connection, and transformation
       </div>
       <div class="dot" style="top: 10000px"></div>
       <div class="freq" style="top: 9985px">999 Hz</div>
-      <div class="txt" style="top: 9985px">Angel: Higher self frequency</div>
+      <div class="txt" style="top: 9985px">
+        <a href="index.html#angels">Angel</a>: Higher self frequency
+      </div>
       <div class="txt" style="top: 10235px">
-        Healing: Balancing the body's energy, improving the immune system, and
-        pain relief
+        <a href="index.html#healing">Healing</a>: Balancing the body's energy,
+        improving the immune system, and pain relief
       </div>
       <div class="dot" style="top: 10250px"></div>
       <div class="freq" style="top: 10240px">1024 Hz</div>
       <div class="txt" style="top: 11515px">
-        Solfeggio: Spiritual purification and to help you access higher
-        spiritual realms
+        <a href="index.html#solfeggio">Solfeggio:</a> Spiritual purification and
+        to help you access higher spiritual realms
       </div>
       <div class="dot" style="top: 11530px"></div>
       <div class="freq" style="top: 11520px">1152 Hz</div>
       <div class="txt" style="top: 21715px">
-        Solfeggio: Spiritual enlightenment, transcendence and ascension
+        <a href="index.html#solfeggio">Solfeggio:</a> Spiritual enlightenment,
+        transcendence and ascension
       </div>
       <div class="dot" style="top: 21730px"></div>
       <div class="freq" style="top: 21720px">2172 Hz</div>
-      <div class="txt" style="top: 40955px">Angel: Jacob's ladder</div>
+      <div class="txt" style="top: 40955px">
+        <a href="index.html#angels">Angel</a>: Jacob's ladder
+      </div>
       <div class="dot" style="top: 40970px"></div>
       <div class="freq" style="top: 40960px">4096 Hz</div>
-      <div class="txt" style="top: 41595px">Angel: Pillar of light</div>
+      <div class="txt" style="top: 41595px">
+        <a href="index.html#angels">Angel</a>: Pillar of light
+      </div>
       <div class="dot" style="top: 41610px"></div>
       <div class="freq" style="top: 41600px">4160 Hz</div>
-      <div class="txt" style="top: 42245px">Angel: Stairway to heaven</div>
+      <div class="txt" style="top: 42245px">
+        <a href="index.html#angels">Angel</a>: Stairway to heaven
+      </div>
       <div class="dot" style="top: 42260px"></div>
       <div class="freq" style="top: 42250px">4225 Hz</div>
       <div class="dot ax" style="top: 10px"></div>
@@ -552,21 +721,27 @@
         </div>
       </div>
     </div>
-    <p class="footer">
-      <a href="index.html">Play these frequencies</a> on your computer.
-    </p>
-    <p class="footer">
-      Open Source at
-      <a
-        href="https://github.com/evoluteur/healing-frequencies"
-        target="og"
-        rel="noopener"
-        >GitHub</a
-      >
-      - © 2024
-      <a href="https://evoluteur.github.io/" target="og" rel="noopener"
-        >Olivier Giulieri</a
-      >
-    </p>
+
+    <div class="footer">
+      <p>
+        <a href="index.html">Play these frequencies</a> on your computer.
+      </p>
+      <p>
+        Open Source at
+        <a
+          href="https://github.com/evoluteur/healing-frequencies"
+          target="og"
+          rel="noopener"
+          >GitHub</a> with  MIT license.
+
+      </p>
+        <p>
+          © 2024
+        <a href="https://evoluteur.github.io/" target="og" rel="noopener"
+          >Olivier Giulieri</a
+        >
+        </p>
+      </p>
+    </div>
   </body>
 </html>
