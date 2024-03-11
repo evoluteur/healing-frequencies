@@ -8,7 +8,7 @@ Simple web page to play the frequencies of various sets of healing tuning forks:
 ![Play healing frequencies](hf-player.png)
 ![Visualize the frequency scale](hf-scale.png)
 
-These web pages just use plain HTML, CSS, and Javascript using Web Audio API without external dependencies.
+These web pages just use plain HTML, CSS, and Javascript to call the Web Audio API (without external dependencies).
 
 Healing-Frequencies is Open Source at [GitHub](https://github.com/evoluteur/healing-frequencies) with MIT license.
 
