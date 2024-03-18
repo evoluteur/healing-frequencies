@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-063933E3C2"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-063933E3C2"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-063933E3C2');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-063933E3C2");
     </script>
     <title>Healing Frequencies</title>
-    <link rel="canonical" href="https://evoluteur.github.io/healing-frequencies/" />
+    <link
+      rel="canonical"
+      href="https://evoluteur.github.io/healing-frequencies/"
+    />
     <meta charset="utf-8" />
     <meta http-equiv="content-language" content="en" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -85,7 +93,7 @@
       };
       const toggleStop = (isOn = false, f) => {
         isPlaying = isOn;
-        $('header').className = isOn ? "" : "w-nav";
+        $("header").className = isOn ? "" : "w-nav";
         $("title").innerHTML = isOn ? f + " Hz" : "Healing Frequencies";
         const p = $("progress");
         p.style.transition = "";
@@ -161,7 +169,7 @@
         position: sticky;
         top: 0;
         height: 70px;
-        transition: height .3s .2s;
+        transition: height 0.3s 0.2s;
         overflow: hidden;
         background: #0288d1 url("spirals.png");
         border-bottom: 1px solid #c6d9f0;
@@ -169,9 +177,9 @@
         z-index: 100;
         .nav {
           position: absolute;
-          bottom:-20px;
-          left:10px;
-          transition: bottom .4s .5s;
+          bottom: -20px;
+          left: 10px;
+          transition: bottom 0.4s 0.5s;
           white-space: nowrap;
           > a {
             margin-right: 10px;
@@ -184,14 +192,14 @@
         &.w-nav {
           &:hover {
             height: 80px;
-            .nav{
+            .nav {
               bottom: 2px;
             }
           }
           #scale {
             display: inline-block;
           }
-          #stop{
+          #stop {
             transform: translateY(-80px);
           }
         }
@@ -241,22 +249,20 @@
       select {
         padding: 4px 5px;
       }
-      .footer {
-        margin: 80vh 0 20px 20px;
-        color: #c6d9f0;
-        transition: color .5s ;
-        > p {
-          transition: color .5s ;
-          > a {
-          transition: color .5s ;
-          }
+      .benefits {
+        margin: 50vh 10px 20px 20px;
+        li {
+          margin-bottom: 10px;
         }
-        &:hover {
-          > p {
-            color: white;
-            > a {
-              color: #ffb74d;
-            }
+      }
+      .footer {
+        margin: 20px 0 20px 20px;
+        color: #c6d9f0;
+        transition: color 0.5s;
+        > p {
+          color: white;
+          > a {
+            color: #ffb74d;
           }
         }
       }
@@ -732,10 +738,36 @@
       </div>
     </div>
 
+    <div class="benefits">
+      Advocates of tuning fork therapy report a wide range of benefits,
+      including:
+      <ul>
+        <li>
+          <strong>Stress Reduction</strong>: The calming vibrations of tuning
+          forks can help to reduce stress and anxiety, promoting a sense of
+          inner peace and tranquility.
+        </li>
+        <li>
+          <strong>Pain Relief</strong>: By stimulating the body's natural
+          healing mechanisms, tuning fork therapy may alleviate chronic pain and
+          discomfort.
+        </li>
+        <li>
+          <strong>Improved Mental Clarity</strong>: Many people find that tuning
+          fork sessions enhance mental clarity, focus, and concentration.
+        </li>
+        <li>
+          <strong>Emotional Healing</strong>: Tuning forks can help to release
+          emotional blockages and promote emotional well-being.
+        </li>
+      </ul>
+    </div>
+
     <div class="footer">
       <p>
-        Look at a visual representation of these
-        <a href="healing-frequencies-scale.html">frequencies on a scale</a>.
+        Look at a visual representation of
+        <a href="healing-frequencies-scale.html">these frequencies on a scale</a
+        >.
       </p>
       <p>
         Open Source at
@@ -743,15 +775,16 @@
           href="https://github.com/evoluteur/healing-frequencies"
           target="og"
           rel="noopener"
-          >GitHub</a> with  MIT license.
-
+          >GitHub</a
+        >
+        with MIT license.
       </p>
-        <p>
-          © 2024
+      <p>
+        <br />
+        © 2024
         <a href="https://evoluteur.github.io/" target="og" rel="noopener"
           >Olivier Giulieri</a
         >
-        </p>
       </p>
     </div>
   </body>

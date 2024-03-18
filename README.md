@@ -8,7 +8,16 @@ Simple web page to play the frequencies of various sets of healing tuning forks:
 ![Play healing frequencies](hf-player.png)
 ![Visualize the frequency scale](hf-scale.png)
 
-Frequencies:
+
+Advocates of tuning fork therapy report a wide range of benefits, including:
+
+- **Stress Reduction:** The calming vibrations of tuning forks can help to reduce stress and anxiety, promoting a sense of inner peace and tranquility.
+- **Pain Relief:** By stimulating the body's natural healing mechanisms, tuning fork therapy may alleviate chronic pain and discomfort.
+- **Improved Mental Clarity:** Many people find that tuning fork sessions enhance mental clarity, focus, and concentration.
+- **Emotional Healing:** Tuning forks can help to release emotional blockages and promote emotional well-being.
+
+
+Frequencies offered in this project:
 
 - **Solfeggio**: 174 Hz, 285 Hz, 396 Hz, 417 Hz, 528 Hz, 639 Hz, 741 Hz, 852 Hz, 963 Hz, 1152 Hz, and 2172 Hz.
 - **Healing**: 128 Hz, 256 Hz, 512 Hz, and 1024 Hz.
