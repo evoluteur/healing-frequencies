@@ -123,6 +123,9 @@
         background: #0288d1 url("spirals.png");
         scroll-behavior: smooth;
       }
+      :target {
+        scroll-margin-top: 110px;
+      }
       body {
         position: relative;
         margin: 0 8px;
@@ -155,9 +158,6 @@
         &:hover {
           color: white;
         }
-      }
-      :target {
-        scroll-margin-top: 100px;
       }
       #scale {
         display: none;
@@ -272,7 +272,6 @@
       }
       .fs {
         position: relative;
-        top: 40px;
         border-left: 3px solid #c6d9f0;
         margin: 0 0 50px;
         padding: 0 0 5px 20px;
@@ -361,11 +360,13 @@
       }
 
       @media only screen and (max-width: 600px) {
+        .nav,
         #scale {
           display: none !important;
         }
         h1 {
-          font-size: 25px;
+          font-size: 30px;
+          margin-right: 120px;
         }
       }
     </style>
