@@ -51,19 +51,62 @@
         return elems[id];
       };
       let isPlaying = false;
-      let cb;
+      let cb, activeBtn;
       let duration = 5;
       let AudioContext = window.AudioContext || window.webkitAudioContext;
       let context;
       let oscillator;
 
-      const playFreq = (frequency = 174) => {
+      const clearBtnUpdate = (skipBtnUpdate) => {
+        if (activeBtn) {
+          activeBtn.className = "";
+          activeBtn = null;
+        }
+      };
+
+      const toggleStop = (isOn = false, f, clearActiveBtn) => {
+        isPlaying = isOn;
+        $("header").className = isOn ? "" : "w-nav";
+        $("title").innerHTML = isOn ? f + " Hz" : "Healing Frequencies";
+        const p = $("progress");
+        p.style.transition = "";
+        p.style.width = 0;
+        if (clearActiveBtn) {
+          clearBtnUpdate(true);
+        }
+        if (isOn) {
+          setTimeout(() => {
+            p.style.transition = "width " + duration + "s linear";
+            p.style.width = "100%";
+          }, 0);
+        }
+      };
+
+      const stop = (skipBtnUpdate) => {
+        if (cb) {
+          clearTimeout(cb);
+        }
+        if (isPlaying && oscillator) {
+          oscillator.stop();
+        }
+        toggleStop(false, null, false);
+        if (!skipBtnUpdate) {
+          clearBtnUpdate();
+        }
+      };
+
+      const playFreq = (btn, frequency = 174) => {
+        if (activeBtn) {
+          activeBtn.className = "";
+        }
+        activeBtn = btn;
+        btn.className = "active";
         if (frequency === "cf") {
           frequency = parseFloat("0" + $("cf").value);
           if (!frequency) return;
           localStorage.setItem("hfreq-cf", frequency);
         }
-        stop();
+        stop(true);
         toggleStop(true, frequency);
         if (!context) {
           context = new AudioContext();
@@ -77,35 +120,14 @@
         oscillator.start(0);
         // g.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + duration)
         g.gain.setValueCurveAtTime(VOLUME_CURVE, context.currentTime, duration);
-        cb = setTimeout(() => toggleStop(false), duration * 1000);
+        cb = setTimeout(() => toggleStop(false, null, true), duration * 1000);
       };
+
       const setDuration = (e) => {
         duration = parseInt(e.selectedOptions[0].value);
         localStorage.setItem("hfreq-duration", duration);
       };
-      const stop = () => {
-        if (cb) {
-          clearTimeout(cb);
-        }
-        if (isPlaying && oscillator) {
-          oscillator.stop();
-        }
-        toggleStop(false);
-      };
-      const toggleStop = (isOn = false, f) => {
-        isPlaying = isOn;
-        $("header").className = isOn ? "" : "w-nav";
-        $("title").innerHTML = isOn ? f + " Hz" : "Healing Frequencies";
-        const p = $("progress");
-        p.style.transition = "";
-        p.style.width = 0;
-        if (isOn) {
-          setTimeout(() => {
-            p.style.transition = "width " + duration + "s linear";
-            p.style.width = "100%";
-          }, 0);
-        }
-      };
+
       const init = () => {
         const d = localStorage.getItem("hfreq-duration");
         if (d) {
@@ -120,7 +142,7 @@
     </script>
     <style>
       :target {
-        scroll-margin-top: 110px;
+        scroll-margin-top: 100px;
       }
       .fs {
         position: relative;
@@ -220,20 +242,6 @@
           text-decoration: none;
         }
       }
-      #header {
-        position: sticky;
-        top: 0;
-        min-height: 70px;
-        transition: min-height 0.3s 0.2s;
-        overflow: hidden;
-        background: #0288d1 url("spirals.png");
-        border-bottom: 1px solid #c6d9f0;
-        padding-top: 5px;
-        z-index: 100;
-        a:hover {
-          color: #ffb74d;
-        }
-      }
       button {
         text-align: left;
         padding: 6px 15px 6px 0;
@@ -325,39 +333,39 @@
     <div class="body">
       <div class="fs" id="solfeggio">
         <h2>Solfeggio</h2>
-        <button onclick="playFreq(174)">
+        <button onclick="playFreq(this, 174)">
           <span> 174 Hz</span> Physical pain relief and stress relief
         </button>
-        <button onclick="playFreq(285)">
+        <button onclick="playFreq(this, 285)">
           <span> 285 Hz</span> Tissue restauration and healing
         </button>
-        <button onclick="playFreq(396)">
+        <button onclick="playFreq(this, 396)">
           <span> 396 Hz</span> Guilt and fear diminishment
         </button>
-        <button onclick="playFreq(417)">
+        <button onclick="playFreq(this, 417)">
           <span>417 Hz</span> Trauma healing
         </button>
-        <button onclick="playFreq(528)">
+        <button onclick="playFreq(this, 528)">
           <span> 528 Hz</span> Relaxation and sleep improvement
         </button>
-        <button onclick="playFreq(639)">
+        <button onclick="playFreq(this, 639)">
           <span> 639 Hz</span> Improvement in mental balance
         </button>
-        <button onclick="playFreq(741)">
+        <button onclick="playFreq(this, 741)">
           <span> 741 Hz</span> Detoxification of the mind and body
         </button>
-        <button onclick="playFreq(852)">
+        <button onclick="playFreq(this, 852)">
           <span> 852 Hz</span> Nervousness and anxity relief
         </button>
-        <button onclick="playFreq(963)">
+        <button onclick="playFreq(this, 963)">
           <span> 963 Hz</span> Increased positive energy and clarity
         </button>
         <h3>Above 1000 Hz</h3>
-        <button onclick="playFreq(1152)">
+        <button onclick="playFreq(this, 1152)">
           <span> 1152 Hz</span> Spiritual purification and to help you access
           higher spiritual realms
         </button>
-        <button onclick="playFreq(2172)">
+        <button onclick="playFreq(this, 2172)">
           <span> 2172 Hz</span> Spiritual enlightenment, transcendence and
           ascension
         </button>
@@ -375,17 +383,17 @@
 
       <div class="fs" id="healing">
         <h2>Healing</h2>
-        <button onclick="playFreq(128)">
+        <button onclick="playFreq(this, 128)">
           <span> 128 Hz</span> Blood circulation, sleep, and stress relief
         </button>
-        <button onclick="playFreq(256)">
+        <button onclick="playFreq(this, 256)">
           <span> 256 Hz</span> Cell growth, tissue regeneration, and pain relief
         </button>
-        <button onclick="playFreq(512)">
+        <button onclick="playFreq(this, 512)">
           <span> 512 Hz</span> Mental clarity and concentration, relaxation and
           sleep, and stress relief
         </button>
-        <button onclick="playFreq(1024)">
+        <button onclick="playFreq(this, 1024)">
           <span> 1024 Hz</span> Balancing the body's energy, improving the
           immune system, and pain relief
         </button>
@@ -403,31 +411,47 @@
 
       <div class="fs" id="organs">
         <h2>Organs</h2>
-        <button onclick="playFreq(321.9)"><span>321.9 Hz</span> Blood</button>
-        <button onclick="playFreq(492.8)">
+        <button onclick="playFreq(this, 321.9)">
+          <span>321.9 Hz</span> Blood
+        </button>
+        <button onclick="playFreq(this, 492.8)">
           <span>492.8 Hz</span> Adrenals
         </button>
-        <button onclick="playFreq(319.88)">
+        <button onclick="playFreq(this, 319.88)">
           <span>319.88 Hz</span> Kidneys
         </button>
-        <button onclick="playFreq(317.83)"><span>317.83 Hz</span> Liver</button>
-        <button onclick="playFreq(352)"><span>352 Hz</span> Bladder</button>
-        <button onclick="playFreq(281)"><span>281 Hz</span> Intestines</button>
-        <button onclick="playFreq(220)"><span>220 Hz</span> Lungs</button>
-        <button onclick="playFreq(176)"><span>176 Hz</span> Colon</button>
-        <button onclick="playFreq(164.3)">
+        <button onclick="playFreq(this, 317.83)">
+          <span>317.83 Hz</span> Liver
+        </button>
+        <button onclick="playFreq(this, 352)">
+          <span>352 Hz</span> Bladder
+        </button>
+        <button onclick="playFreq(this, 281)">
+          <span>281 Hz</span> Intestines
+        </button>
+        <button onclick="playFreq(this, 220)"><span>220 Hz</span> Lungs</button>
+        <button onclick="playFreq(this, 176)"><span>176 Hz</span> Colon</button>
+        <button onclick="playFreq(this, 164.3)">
           <span>164.3 Hz</span> Gall Bladder
         </button>
-        <button onclick="playFreq(117.3)">
+        <button onclick="playFreq(this, 117.3)">
           <span>117.3 Hz</span> Pancreas
         </button>
-        <button onclick="playFreq(110)"><span>110 Hz</span> Stomach</button>
-        <button onclick="playFreq(315.8)"><span>315.8 Hz</span> Brain</button>
-        <button onclick="playFreq(295.8)">
+        <button onclick="playFreq(this, 110)">
+          <span>110 Hz</span> Stomach
+        </button>
+        <button onclick="playFreq(this, 315.8)">
+          <span>315.8 Hz</span> Brain
+        </button>
+        <button onclick="playFreq(this, 295.8)">
           <span>295.8 Hz</span> Fat Cells
         </button>
-        <button onclick="playFreq(324)"><span>324 Hz</span> Muscles</button>
-        <button onclick="playFreq(418.3)"><span>418.3 Hz</span> Bone</button>
+        <button onclick="playFreq(this, 324)">
+          <span>324 Hz</span> Muscles
+        </button>
+        <button onclick="playFreq(this, 418.3)">
+          <span>418.3 Hz</span> Bone
+        </button>
         <p>
           About the
           <a
@@ -441,23 +465,43 @@
 
       <div class="fs" id="minerals">
         <h2>Mineral nutrients</h2>
-        <button onclick="playFreq(272)">
+        <button onclick="playFreq(this, 272)">
           <span> 272 Hz</span> Selenium and Chlorine
         </button>
-        <button onclick="playFreq(336)"><span>336 Hz</span> Molybdenum</button>
-        <button onclick="playFreq(304)"><span>304 Hz</span> Potassium</button>
-        <button onclick="playFreq(320)"><span>320 Hz</span> Calcium</button>
-        <button onclick="playFreq(384)"><span> 384 Hz</span> Chromium</button>
-        <button onclick="playFreq(400)"><span>400 Hz</span> Manganese</button>
-        <button onclick="playFreq(416)"><span>416 Hz</span> Iron</button>
-        <button onclick="playFreq(424)"><span>424 Hz</span> Iodine</button>
-        <button onclick="playFreq(464)"><span>464 Hz</span> Copper</button>
-        <button onclick="playFreq(480)">
+        <button onclick="playFreq(this, 336)">
+          <span>336 Hz</span> Molybdenum
+        </button>
+        <button onclick="playFreq(this, 304)">
+          <span>304 Hz</span> Potassium
+        </button>
+        <button onclick="playFreq(this, 320)">
+          <span>320 Hz</span> Calcium
+        </button>
+        <button onclick="playFreq(this, 384)">
+          <span> 384 Hz</span> Chromium
+        </button>
+        <button onclick="playFreq(this, 400)">
+          <span>400 Hz</span> Manganese
+        </button>
+        <button onclick="playFreq(this, 416)"><span>416 Hz</span> Iron</button>
+        <button onclick="playFreq(this, 424)">
+          <span>424 Hz</span> Iodine
+        </button>
+        <button onclick="playFreq(this, 464)">
+          <span>464 Hz</span> Copper
+        </button>
+        <button onclick="playFreq(this, 480)">
           <span>480 Hz</span> Phosphorus and Zinc
         </button>
-        <button onclick="playFreq(352)"><span>352 Hz</span> Sodium</button>
-        <button onclick="playFreq(256)"><span>256 Hz</span> Sulphur</button>
-        <button onclick="playFreq(341)"><span> 341 Hz</span> Magnesium</button>
+        <button onclick="playFreq(this, 352)">
+          <span>352 Hz</span> Sodium
+        </button>
+        <button onclick="playFreq(this, 256)">
+          <span>256 Hz</span> Sulphur
+        </button>
+        <button onclick="playFreq(this, 341)">
+          <span> 341 Hz</span> Magnesium
+        </button>
         <p>
           About the
           <a
@@ -468,51 +512,61 @@
           >
         </p>
         <h3>Special mineral nutrients</h3>
-        <button onclick="playFreq(316)"><span>316 Hz</span> Gold</button>
-        <button onclick="playFreq(376)"><span>376 Hz</span> Silver</button>
-        <button onclick="playFreq(312)"><span>312 Hz</span> Platinum</button>
-        <button onclick="playFreq(448)"><span>448 Hz</span> Silica</button>
+        <button onclick="playFreq(this, 316)"><span>316 Hz</span> Gold</button>
+        <button onclick="playFreq(this, 376)">
+          <span>376 Hz</span> Silver
+        </button>
+        <button onclick="playFreq(this, 312)">
+          <span>312 Hz</span> Platinum
+        </button>
+        <button onclick="playFreq(this, 448)">
+          <span>448 Hz</span> Silica
+        </button>
       </div>
 
       <div class="fs" id="ohm">
         <h2>Ohm</h2>
-        <button onclick="playFreq(68.05)"><span>68.05 Hz</span> Low Ohm</button>
-        <button onclick="playFreq(136.1)"><span>136.1 Hz</span> Mid Ohm</button>
-        <button onclick="playFreq(272.2)">
+        <button onclick="playFreq(this, 68.05)">
+          <span>68.05 Hz</span> Low Ohm
+        </button>
+        <button onclick="playFreq(this, 136.1)">
+          <span>136.1 Hz</span> Mid Ohm
+        </button>
+        <button onclick="playFreq(this, 272.2)">
           <span>272.2 Hz</span> High Ohm
         </button>
-        <button onclick="playFreq(544.4)">
+        <button onclick="playFreq(this, 544.4)">
           <span> 544.4 Hz</span> Ultra High Ohm
         </button>
       </div>
 
       <div class="fs" id="chakras">
         <h2>Chakras</h2>
-        <button onclick="playFreq(68.05)" class="c0">
+        <button onclick="playFreq(this, 68.05)" class="c0">
           <span> 68.05 Hz</span> Earth star (Vasundhara)
         </button>
-        <button onclick="playFreq(194.18)" class="c1">
+        <button onclick="playFreq(this, 194.18)" class="c1">
           <span> 194.18 Hz</span> Root (Muladhara)
         </button>
-        <button onclick="playFreq(210.42)" class="c2">
+        <button onclick="playFreq(this, 210.42)" class="c2">
           <span> 210.42 Hz</span> Sacral (Svadhisthana)
         </button>
-        <button onclick="playFreq(126.22)" class="c3">
+        <button onclick="playFreq(this, 126.22)" class="c3">
           <span> 126.22 Hz</span> Solar Plexus (Manipura)
         </button>
-        <button onclick="playFreq(136.1)" class="c4">
+        <button onclick="playFreq(this, 136.1)" class="c4">
           <span>136.1 Hz</span> Heart (Anahata)
         </button>
-        <button onclick="playFreq(141.27)" class="c5">
+        <button onclick="playFreq(this, 141.27)" class="c5">
           <span> 141.27 Hz</span> Throat (Vishuddha)
         </button>
-        <button onclick="playFreq(221.23)" class="c6">
+        <button onclick="playFreq(this, 221.23)" class="c6">
           <span> 221.23 Hz</span> Third Eye (Ajna)
         </button>
-        <button onclick="playFreq(172.06)" class="c7">
+        <button onclick="playFreq(this, 172.06)" class="c7">
           <span> 172.06 Hz</span> Crown (Sahasrara)
         </button>
-        <button onclick="playFreq(272.2)" class="c8">
+        <button onclick="playFreq(this, 272.2)" class="c8">
           <span>272.2 Hz</span> Soul star (Vyapini)
         </button>
         <p>
@@ -528,23 +582,29 @@
 
       <div class="fs" id="dna">
         <h2>DNA nucleotides</h2>
-        <button onclick="playFreq(537.8)">
+        <button onclick="playFreq(this, 537.8)">
           <span>537.8 Hz</span> Cytocine
         </button>
-        <button onclick="playFreq(543.4)"><span>543.4 Hz</span> Thymine</button>
-        <button onclick="playFreq(545.6)"><span>545.6 Hz</span> Adenine</button>
-        <button onclick="playFreq(550)"><span>550 Hz</span> Guanine</button>
+        <button onclick="playFreq(this, 543.4)">
+          <span>543.4 Hz</span> Thymine
+        </button>
+        <button onclick="playFreq(this, 545.6)">
+          <span>545.6 Hz</span> Adenine
+        </button>
+        <button onclick="playFreq(this, 550)">
+          <span>550 Hz</span> Guanine
+        </button>
       </div>
 
       <div class="fs" id="tesla">
         <h2>Nikola Tesla 3-6-9</h2>
-        <button onclick="playFreq(333)">
+        <button onclick="playFreq(this, 333)">
           <span>333 Hz</span> Healing, balance, and harmony
         </button>
-        <button onclick="playFreq(639)">
+        <button onclick="playFreq(this, 639)">
           <span>639 Hz</span> Relationships, connection, and communication
         </button>
-        <button onclick="playFreq(999)">
+        <button onclick="playFreq(this, 999)">
           <span>999 Hz</span> Spiritual awakening, divine connection, and
           transformation
         </button>
@@ -552,27 +612,39 @@
 
       <div class="fs" id="cosmic">
         <h2>Cosmic octave</h2>
-        <button onclick="playFreq(194.18)"><span>194.18 Hz</span> Earth</button>
-        <button onclick="playFreq(210.42)"><span>210.42 Hz</span> Moon</button>
-        <button onclick="playFreq(126.22)"><span>126.22 Hz</span> Sun</button>
-        <button onclick="playFreq(141.27)">
+        <button onclick="playFreq(this, 194.18)">
+          <span>194.18 Hz</span> Earth
+        </button>
+        <button onclick="playFreq(this, 210.42)">
+          <span>210.42 Hz</span> Moon
+        </button>
+        <button onclick="playFreq(this, 126.22)">
+          <span>126.22 Hz</span> Sun
+        </button>
+        <button onclick="playFreq(this, 141.27)">
           <span>141.27 Hz</span> Mercury
         </button>
-        <button onclick="playFreq(221.23)"><span>221.23 Hz</span> Venus</button>
-        <button onclick="playFreq(144.72)"><span>144.72 Hz</span> Mars</button>
-        <button onclick="playFreq(183.58)">
+        <button onclick="playFreq(this, 221.23)">
+          <span>221.23 Hz</span> Venus
+        </button>
+        <button onclick="playFreq(this, 144.72)">
+          <span>144.72 Hz</span> Mars
+        </button>
+        <button onclick="playFreq(this, 183.58)">
           <span>183.58 Hz</span> Jupiter
         </button>
-        <button onclick="playFreq(147.85)">
+        <button onclick="playFreq(this, 147.85)">
           <span>147.85 Hz</span> Saturn
         </button>
-        <button onclick="playFreq(207.36)">
+        <button onclick="playFreq(this, 207.36)">
           <span>207.36 Hz</span> Uranus
         </button>
-        <button onclick="playFreq(211.44)">
+        <button onclick="playFreq(this, 211.44)">
           <span>211.44 Hz</span> Neptune
         </button>
-        <button onclick="playFreq(140.25)"><span>140.25 Hz</span> Pluto</button>
+        <button onclick="playFreq(this, 140.25)">
+          <span>140.25 Hz</span> Pluto
+        </button>
         <p>
           About the
           <a
@@ -586,11 +658,13 @@
 
       <div class="fs" id="otto">
         <h2>Ostheopathic (Otto)</h2>
-        <button onclick="playFreq(32)"><span>32 Hz</span> Immune system</button>
-        <button onclick="playFreq(64)">
+        <button onclick="playFreq(this, 32)">
+          <span>32 Hz</span> Immune system
+        </button>
+        <button onclick="playFreq(this, 64)">
           <span>64 Hz</span> Nervous system
         </button>
-        <button onclick="playFreq(128)">
+        <button onclick="playFreq(this, 128)">
           <span>128 Hz</span> Joints mobility
         </button>
         <p>32 Hz is too low to play on computer and 64Hz is barly audible.</p>
@@ -607,42 +681,42 @@
 
       <div class="fs" id="angels">
         <h2>Angels</h2>
-        <button onclick="playFreq(4096)">
+        <button onclick="playFreq(this, 4096)">
           <span>4096 Hz</span> Jacob's ladder
         </button>
-        <button onclick="playFreq(4160)">
+        <button onclick="playFreq(this, 4160)">
           <span>4160 Hz</span> Pillar of light
         </button>
-        <button onclick="playFreq(4225)">
+        <button onclick="playFreq(this, 4225)">
           <span> 4225 Hz</span> Stairway to heaven
         </button>
 
         <h3>Numerology based</h3>
-        <button onclick="playFreq(111)">
+        <button onclick="playFreq(this, 111)">
           <span>111 Hz</span> Holy frequency
         </button>
-        <button onclick="playFreq(222)">
+        <button onclick="playFreq(this, 222)">
           <span>222 Hz</span> Energy balancer
         </button>
-        <button onclick="playFreq(333)">
+        <button onclick="playFreq(this, 333)">
           <span>333 Hz</span> Angelic frequency
         </button>
-        <button onclick="playFreq(444)">
+        <button onclick="playFreq(this, 444)">
           <span>444 Hz</span> Spiritual detoxer
         </button>
-        <button onclick="playFreq(555)">
+        <button onclick="playFreq(this, 555)">
           <span>555 Hz</span> Divine change
         </button>
-        <button onclick="playFreq(666)">
+        <button onclick="playFreq(this, 666)">
           <span>666 Hz</span> Physical/spiritual balance
         </button>
-        <button onclick="playFreq(777)">
+        <button onclick="playFreq(this, 777)">
           <span>777 Hz</span> Divine sound
         </button>
-        <button onclick="playFreq(888)">
+        <button onclick="playFreq(this, 888)">
           <span>888 Hz</span> Infinite possibilities
         </button>
-        <button onclick="playFreq(999)">
+        <button onclick="playFreq(this, 999)">
           <span>999 Hz</span> Higher self frequency
         </button>
         <p>
@@ -659,7 +733,7 @@
       <div class="fs" id="custom">
         <h2>Custom</h2>
         <input id="cf" type="number" class="num" value="174" /> Hz &nbsp;
-        <button onclick="playFreq('cf')" class="play">
+        <button onclick="playFreq(this, 'cf')" class="play">
           <div></div>
           PLAY
         </button>
