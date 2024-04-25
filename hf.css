@@ -22,6 +22,7 @@ select {
 h1 {
   display: inline-block;
   margin: 10px 0 20px 10px;
+  min-width: 350px;
 }
 h3 {
   margin-top: 40px;
@@ -80,6 +81,19 @@ select {
     left: 10px;
     transition: bottom 0.4s 0.5s;
     white-space: nowrap;
+    &.fnav {
+      > div {
+        position: absolute;
+        top: -20px;
+        cursor: pointer;
+        &:hover {
+          color: #ffb74d;
+        }
+      }
+    }
+    > div {
+      display: inline-block;
+    }
     > a {
       margin-right: 10px;
       text-decoration: none;
@@ -89,10 +103,21 @@ select {
     }
   }
   &.w-nav {
+    position: relative;
     &:hover {
       min-height: 80px;
       .nav {
         bottom: 2px;
+      }
+    }
+    #mplay {
+      position: absolute;
+      top: 25px;
+      right: 0;
+      display: block;
+      margin-left: 30px;
+      > a {
+        text-decoration: none;
       }
     }
     #scale {
@@ -107,5 +132,8 @@ select {
   h1 {
     font-size: 30px;
     margin-right: 120px;
+  }
+  #mplay {
+    display: none !important;
   }
 }
