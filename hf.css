@@ -1,0 +1,111 @@
+html {
+  color: white;
+  background: #0288d1 url("spirals.png");
+  scroll-behavior: smooth;
+}
+body {
+  position: relative;
+  margin: 0 8px;
+  padding: 0 10px 20px;
+}
+html,
+button,
+select,
+input {
+  font-family: "Marcellus", serif;
+  font-size: 16px;
+}
+input,
+select {
+  background-color: white;
+}
+h1 {
+  display: inline-block;
+  margin: 10px 0 20px 10px;
+}
+h3 {
+  margin-top: 40px;
+}
+p {
+  color: #c6d9f0;
+}
+a {
+  color: #c6d9f0;
+  transition: color 0.5s 0.05s;
+  &:hover {
+    color: white;
+  }
+}
+.num {
+  width: 6em;
+}
+select {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  font-size: 16px;
+}
+input,
+select {
+  padding: 4px 5px;
+}
+.footer {
+  margin: 20px 0 20px 20px;
+  color: #c6d9f0;
+  transition: color 0.5s;
+  > p {
+    color: white;
+    > a {
+      color: #ffb74d;
+    }
+  }
+}
+
+#header {
+  position: sticky !important;
+  top: 0;
+  min-height: 70px;
+  transition: min-height 0.3s 0.2s;
+  overflow: hidden;
+  background: #0288d1 url("spirals.png");
+  border-bottom: 1px solid #c6d9f0;
+  padding-top: 5px;
+  z-index: 100;
+  a:hover {
+    color: #ffb74d;
+  }
+  .nav {
+    position: absolute;
+    bottom: -20px;
+    left: 10px;
+    transition: bottom 0.4s 0.5s;
+    white-space: nowrap;
+    > a {
+      margin-right: 10px;
+      text-decoration: none;
+      &:hover {
+        color: #ffb74d;
+      }
+    }
+  }
+  &.w-nav {
+    &:hover {
+      min-height: 80px;
+      .nav {
+        bottom: 2px;
+      }
+    }
+    #scale {
+      display: inline-block;
+    }
+    #stop {
+      transform: translateY(-80px);
+    }
+  }
+}
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 30px;
+    margin-right: 120px;
+  }
+}

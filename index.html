@@ -24,6 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="favicon.png" />
     <meta name="theme-color" content="#bbdefb" />
+    <link href="hf.css" rel="stylesheet" />
     <meta
       name="keywords"
       content="sound, audio, therapy, solfeggio, otto, ostheopathic, chakras, cosmic, octave, vibration, frequencies, tuning, fork, healing, sympathetic, resonance, web-audio"
@@ -118,157 +119,8 @@
       };
     </script>
     <style>
-      html {
-        color: white;
-        background: #0288d1 url("spirals.png");
-        scroll-behavior: smooth;
-      }
       :target {
         scroll-margin-top: 110px;
-      }
-      body {
-        position: relative;
-        margin: 0 8px;
-        padding: 0 10px 20px;
-      }
-      html,
-      button,
-      select,
-      input {
-        font-family: "Marcellus", serif;
-        font-size: 16px;
-      }
-      input,
-      select {
-        background-color: white;
-      }
-      h1 {
-        display: inline-block;
-        margin: 10px 0 20px 10px;
-      }
-      h3 {
-        margin-top: 40px;
-      }
-      p {
-        color: #c6d9f0;
-      }
-      a {
-        color: #c6d9f0;
-        transition: color 0.5s 0.05s;
-        &:hover {
-          color: white;
-        }
-      }
-      #scale {
-        display: none;
-        margin-left: 20px;
-        position: relative;
-        top: -3px;
-        color: #ffb74d;
-        > a {
-          text-decoration: none;
-        }
-      }
-      #header {
-        position: sticky;
-        top: 0;
-        min-height: 70px;
-        transition: min-height 0.3s 0.2s;
-        overflow: hidden;
-        background: #0288d1 url("spirals.png");
-        border-bottom: 1px solid #c6d9f0;
-        padding-top: 5px;
-        z-index: 100;
-        .nav {
-          position: absolute;
-          bottom: -20px;
-          left: 10px;
-          transition: bottom 0.4s 0.5s;
-          white-space: nowrap;
-          > a {
-            margin-right: 10px;
-            text-decoration: none;
-            &:hover {
-              color: #ffb74d;
-            }
-          }
-        }
-        &.w-nav {
-          &:hover {
-            min-height: 80px;
-            .nav {
-              bottom: 2px;
-            }
-          }
-          #scale {
-            display: inline-block;
-          }
-          #stop {
-            transform: translateY(-80px);
-          }
-        }
-        a:hover {
-          color: #ffb74d;
-        }
-      }
-      .num {
-        width: 6em;
-      }
-      button {
-        text-align: left;
-        padding: 6px 15px 6px 0;
-        margin: 6px 6px 6px 0;
-        border-radius: 10px;
-        cursor: pointer;
-        background-color: #c6d9f0;
-        transition: background-color 0.5s 0.05s;
-        border-width: 1px;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 100%;
-        > span {
-          background-color: white;
-          padding: 6px 10px 6px 15px;
-          border-top-left-radius: 10px;
-          border-bottom-left-radius: 10px;
-          margin-right: 8px;
-          transition: background-color 0.5s 0.05s, color 0.5s 0.05s;
-        }
-      }
-      button:hover {
-        background-color: white;
-        > span {
-          background-color: black;
-          color: white;
-        }
-      }
-      select {
-        position: absolute;
-        top: 20px;
-        right: 10px;
-        font-size: 16px;
-      }
-      input,
-      select {
-        padding: 4px 5px;
-      }
-      .benefits {
-        margin: 50vh 10px 20px 20px;
-        li {
-          margin-bottom: 10px;
-        }
-      }
-      .footer {
-        margin: 20px 0 20px 20px;
-        color: #c6d9f0;
-        transition: color 0.5s;
-        > p {
-          color: white;
-          > a {
-            color: #ffb74d;
-          }
-        }
       }
       .fs {
         position: relative;
@@ -311,6 +163,9 @@
       }
       .play {
         padding-left: 15px;
+        &:hover {
+          background-color: #a5d6a7;
+        }
         > div {
           position: relative;
           top: 2px;
@@ -321,9 +176,6 @@
           border-bottom: 8px solid transparent;
           border-left: 8px solid black;
         }
-      }
-      .play:hover {
-        background-color: #a5d6a7;
       }
       #stop {
         position: absolute;
@@ -337,6 +189,9 @@
         border-radius: 10px;
         cursor: pointer;
         transition: transform 0.5s, background-color 0.5s;
+        &:hover {
+          background-color: #e53935;
+        }
         > div {
           display: inline-block;
           background-color: white;
@@ -344,9 +199,6 @@
           width: 16px;
           margin-right: 10px;
         }
-      }
-      #stop:hover {
-        background-color: #e53935;
       }
       #progress {
         position: absolute;
@@ -358,15 +210,77 @@
         opacity: 0.3;
         border-radius: 1px;
       }
-
+      #scale {
+        display: none;
+        margin-left: 20px;
+        position: relative;
+        top: -3px;
+        color: #ffb74d;
+        > a {
+          text-decoration: none;
+        }
+      }
+      #header {
+        position: sticky;
+        top: 0;
+        min-height: 70px;
+        transition: min-height 0.3s 0.2s;
+        overflow: hidden;
+        background: #0288d1 url("spirals.png");
+        border-bottom: 1px solid #c6d9f0;
+        padding-top: 5px;
+        z-index: 100;
+        a:hover {
+          color: #ffb74d;
+        }
+      }
+      button {
+        text-align: left;
+        padding: 6px 15px 6px 0;
+        margin: 6px 6px 6px 0;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: #c6d9f0;
+        transition: background-color 0.5s 0.05s;
+        border-width: 1px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 100%;
+        > span {
+          background-color: white;
+          padding: 6px 10px 6px 15px;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+          margin-right: 8px;
+          transition: background-color 0.5s 0.05s, color 0.5s 0.05s;
+        }
+      }
+      button:hover {
+        background-color: white;
+        > span {
+          background-color: black;
+          color: white;
+        }
+      }
+      button.active {
+        background-color: #707070;
+        color: white;
+        > span {
+          background-color: black;
+          color: white;
+        }
+      }
+      .benefits {
+        margin: 50vh 10px 20px 20px;
+        li {
+          margin-bottom: 10px;
+        }
+      }
       @media only screen and (max-width: 600px) {
         .nav,
         #scale {
           display: none !important;
-        }
-        h1 {
-          font-size: 30px;
-          margin-right: 120px;
         }
       }
     </style>
