@@ -34,6 +34,9 @@ Frequencies offered in this project:
 
 The web pages in this project are just plain HTML, CSS, and Javascript to call the Web Audio API (without external dependencies).
 
-Healing-Frequencies is Open Source at [GitHub](https://github.com/evoluteur/healing-frequencies) with MIT license.
+The code for Healing-Frequencies is Open Source at [GitHub](https://github.com/evoluteur/healing-frequencies) with MIT license.
+
+You may also be interested in my other project [Motivational Numerology](https://github.com/evoluteur/motivational-numerology).
+
 
 (c) 2024 [Olivier Giulieri](https://evoluteur.github.io/)
