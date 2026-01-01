@@ -41,4 +41,4 @@ Encourage this project by [becoming a sponsor](https://github.com/sponsors/evolu
 You may also be interested in my other project [Motivational Numerology](https://github.com/evoluteur/motivational-numerology).
 
 
-(c) 2025 [Olivier Giulieri](https://evoluteur.github.io/)
+(c) 2026 [Olivier Giulieri](https://evoluteur.github.io/)
