@@ -1,6 +1,6 @@
 {
   "name": "healing-frequencies",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Play the frequencies of various sets of healing tuning forks: Solfeggio, Organs, Mineral Nutrients, Ohm, Chakras, Cosmic Octave, Otto, Tesla, Angels...",
   "repository": "github:evoluteur/healing-frequencies",
   "homepage": "https://evoluteur.github.io/healing-frequencies/",
@@ -27,6 +27,12 @@
     "solfeggio",
     "chakras",
     "solfeggio-frequency",
-    "resonance"
+    "resonance",
+    "binaural",
+    "isochronic",
+    "brainwave",
+    "meditation",
+    "relaxation",
+    "wellness"
   ]
 }
