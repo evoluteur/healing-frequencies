@@ -29,7 +29,9 @@
     <link href="hf.css" rel="stylesheet" />
     <script>
       if ("serviceWorker" in navigator) {
-        addEventListener("load", () => navigator.serviceWorker.register("sw.js"));
+        addEventListener("load", () =>
+          navigator.serviceWorker.register("sw.js"),
+        );
       }
     </script>
     <meta
@@ -176,7 +178,11 @@
         gain.connect(context.destination);
         oscillator.start(0);
         // gain.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + duration)
-        gain.gain.setValueCurveAtTime(VOLUME_CURVE, context.currentTime, duration);
+        gain.gain.setValueCurveAtTime(
+          VOLUME_CURVE,
+          context.currentTime,
+          duration,
+        );
         cb = setTimeout(() => toggleStop(false, null, true), duration * 1000);
       };
 
@@ -264,6 +270,7 @@
         text-align: center;
         font-size: 20px;
         background-color: #b71c1c;
+        color: white;
         border-radius: 10px;
         cursor: pointer;
         transition:
@@ -340,7 +347,7 @@
         }
       }
       .benefits {
-        margin: 50vh 10px 20px 20px;
+        margin: 200px 10px 20px 20px;
         li {
           margin-bottom: 10px;
         }
