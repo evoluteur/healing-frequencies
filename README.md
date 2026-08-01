@@ -8,7 +8,6 @@ Simple web page to play the frequencies of various sets of healing tuning forks:
 ![Play healing frequencies](hf-player.png)
 ![Visualize the frequency scale](hf-scale.png)
 
-
 Advocates of tuning fork therapy report a wide range of benefits, including:
 
 - **Stress Reduction:** The calming vibrations of tuning forks can help to reduce stress and anxiety, promoting a sense of inner peace and tranquility.
@@ -31,14 +30,16 @@ Frequencies offered in this project:
 - **Osteopathic (Otto)**: 32 Hz, 64 Hz, and 128 Hz.
 - **Angels**: 111 Hz, 222 Hz, 333 Hz, 444 Hz, 555 Hz, 666 Hz, 777 Hz, 888 Hz, 999 Hz, 4096 Hz, 4160 Hz, and 4225 Hz.
 - **Schumann**: 7.83 Hz (too low to play on computer).
+- **Custom**: whatever resonates with you.
 
 The web pages in this project are just plain HTML, CSS, and Javascript to call the Web Audio API (without external dependencies).
+
+Healing-Frequencies is a Progressive Web App (PWA): you can install it on your phone or computer from the browser, and it works offline.
 
 Healing-Frequencies is Open Source at [GitHub](https://github.com/evoluteur/healing-frequencies) with MIT license.
 
 Encourage this project by [becoming a sponsor](https://github.com/sponsors/evoluteur).
 
 You may also be interested in my other project [Motivational Numerology](https://github.com/evoluteur/motivational-numerology).
-
 
 (c) 2026 [Olivier Giulieri](https://evoluteur.github.io/)

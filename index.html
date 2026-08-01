@@ -23,8 +23,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="icon-192.png" />
     <meta name="theme-color" content="#bbdefb" />
     <link href="hf.css" rel="stylesheet" />
+    <script>
+      if ("serviceWorker" in navigator) {
+        addEventListener("load", () => navigator.serviceWorker.register("sw.js"));
+      }
+    </script>
     <meta
       name="keywords"
       content="sound, audio, therapy, solfeggio, otto, osteopathic, chakras, cosmic, octave, vibration, frequencies, tuning, fork, healing, sympathetic, resonance, web-audio"

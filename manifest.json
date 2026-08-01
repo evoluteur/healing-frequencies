@@ -1,0 +1,24 @@
+{
+  "name": "Healing Frequencies",
+  "short_name": "Frequencies",
+  "description": "Digital tuning forks for energy and sound healing: Solfeggio, Organs, Mineral nutrients, Ohm, Chakras, Cosmic Octave, Otto, Tesla, Angels...",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0288d1",
+  "theme_color": "#bbdefb",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
