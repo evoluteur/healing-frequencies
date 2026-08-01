@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <script
@@ -27,37 +27,62 @@
     <link href="hf.css" rel="stylesheet" />
     <meta
       name="keywords"
-      content="sound, audio, therapy, solfeggio, otto, ostheopathic, chakras, cosmic, octave, vibration, frequencies, tuning, fork, healing, sympathetic, resonance, web-audio"
+      content="sound, audio, therapy, solfeggio, otto, osteopathic, chakras, cosmic, octave, vibration, frequencies, tuning, fork, healing, sympathetic, resonance, web-audio"
     />
     <meta
       name="description"
       content="Digital tuning forks for energy and sound healing: Solfeggio, Organs, Mineral nutrients, Ohm, Chakras, Cosmic Octave, Otto, Tesla, Angels..."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://evoluteur.github.io/healing-frequencies/" />
-    <meta property="og:title" content="Healing Frequencies — Digital Tuning Forks for Sound Healing" />
-    <meta property="og:description" content="Digital tuning forks for energy and sound healing: Solfeggio, Organs, Mineral nutrients, Ohm, Chakras, Cosmic Octave, Otto, Tesla, Angels..." />
-    <meta property="og:image" content="https://raw.githubusercontent.com/evoluteur/healing-frequencies/main/hf-player.png" />
+    <meta
+      property="og:url"
+      content="https://evoluteur.github.io/healing-frequencies/"
+    />
+    <meta
+      property="og:title"
+      content="Healing Frequencies — Digital Tuning Forks for Sound Healing"
+    />
+    <meta
+      property="og:description"
+      content="Digital tuning forks for energy and sound healing: Solfeggio, Organs, Mineral nutrients, Ohm, Chakras, Cosmic Octave, Otto, Tesla, Angels..."
+    />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/evoluteur/healing-frequencies/main/hf-player.png"
+    />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Healing Frequencies — Digital Tuning Forks for Sound Healing" />
-    <meta name="twitter:description" content="Digital tuning forks for energy and sound healing: Solfeggio, Organs, Mineral nutrients, Ohm, Chakras, Cosmic Octave, Otto, Tesla, Angels..." />
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/evoluteur/healing-frequencies/main/hf-player.png" />
+    <meta
+      name="twitter:title"
+      content="Healing Frequencies — Digital Tuning Forks for Sound Healing"
+    />
+    <meta
+      name="twitter:description"
+      content="Digital tuning forks for energy and sound healing: Solfeggio, Organs, Mineral nutrients, Ohm, Chakras, Cosmic Octave, Otto, Tesla, Angels..."
+    />
+    <meta
+      name="twitter:image"
+      content="https://raw.githubusercontent.com/evoluteur/healing-frequencies/main/hf-player.png"
+    />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Marcellus"
     />
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Healing Frequencies",
-      "url": "https://evoluteur.github.io/healing-frequencies/",
-      "description": "Digital tuning forks for energy and sound healing: Solfeggio, Organs, Mineral nutrients, Ohm, Chakras, Cosmic Octave, Otto, Tesla, Angels.",
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Any",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "author": { "@type": "Person", "name": "Olivier Giulieri", "url": "https://evoluteur.github.io/" }
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Healing Frequencies",
+        "url": "https://evoluteur.github.io/healing-frequencies/",
+        "description": "Digital tuning forks for energy and sound healing: Solfeggio, Organs, Mineral nutrients, Ohm, Chakras, Cosmic Octave, Otto, Tesla, Angels.",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": {
+          "@type": "Person",
+          "name": "Olivier Giulieri",
+          "url": "https://evoluteur.github.io/"
+        }
+      }
     </script>
     <script>
       const VOLUME_CURVE = [1.0, 0.61, 0.37, 0.22, 0.14, 0.08, 0.05, 0];
@@ -332,10 +357,10 @@
         <option value="120">2 minutes</option>
         <option value="180">3 minutes</option>
       </select>
-      <buton id="stop" onClick="stop()"
-        ><div></div>
-        STOP</buton
-      >
+      <button id="stop" onClick="stop()">
+        <div></div>
+        STOP
+      </button>
       <div class="nav">
         <a href="#solfeggio">Solfeggio</a>
         <a href="#healing">Healing</a>
@@ -359,7 +384,7 @@
           <span> 174 Hz</span> Physical pain relief and stress relief
         </button>
         <button onclick="playFreq(this, 285)">
-          <span> 285 Hz</span> Tissue restauration and healing
+          <span> 285 Hz</span> Tissue restoration and healing
         </button>
         <button onclick="playFreq(this, 396)">
           <span> 396 Hz</span> Guilt and fear diminishment
@@ -377,7 +402,7 @@
           <span> 741 Hz</span> Detoxification of the mind and body
         </button>
         <button onclick="playFreq(this, 852)">
-          <span> 852 Hz</span> Nervousness and anxity relief
+          <span> 852 Hz</span> Nervousness and anxiety relief
         </button>
         <button onclick="playFreq(this, 963)">
           <span> 963 Hz</span> Increased positive energy and clarity
@@ -605,7 +630,7 @@
       <div class="fs" id="dna">
         <h2>DNA nucleotides</h2>
         <button onclick="playFreq(this, 537.8)">
-          <span>537.8 Hz</span> Cytocine
+          <span>537.8 Hz</span> Cytosine
         </button>
         <button onclick="playFreq(this, 543.4)">
           <span>543.4 Hz</span> Thymine
@@ -679,7 +704,7 @@
       </div>
 
       <div class="fs" id="otto">
-        <h2>Ostheopathic (Otto)</h2>
+        <h2>Osteopathic (Otto)</h2>
         <button onclick="playFreq(this, 32)">
           <span>32 Hz</span> Immune system
         </button>
@@ -689,7 +714,7 @@
         <button onclick="playFreq(this, 128)">
           <span>128 Hz</span> Joints mobility
         </button>
-        <p>32 Hz is too low to play on computer and 64Hz is barly audible.</p>
+        <p>32 Hz is too low to play on computer and 64Hz is barely audible.</p>
         <p>
           About the
           <a

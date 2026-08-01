@@ -28,7 +28,7 @@ Frequencies offered in this project:
 - **DNA nucleotides**: 537.8 Hz, 543.4 Hz, 545.6 Hz, and 550 Hz.
 - **Cosmic octave**: 126.22 Hz, 140.25 Hz, 141.27 Hz, 144.72 Hz, 147.85 Hz, 183.58 Hz, 194.18 Hz, 207.36 Hz, 210.42 Hz, 211.44 Hz, and 221.23 Hz.
 - **Nikola Tesla 3-6-9**: 333 Hz, 639 Hz, and 999 Hz.
-- **Ostheopathic (Otto)**: 32 Hz, 64 Hz, and 128 Hz.
+- **Osteopathic (Otto)**: 32 Hz, 64 Hz, and 128 Hz.
 - **Angels**: 111 Hz, 222 Hz, 333 Hz, 444 Hz, 555 Hz, 666 Hz, 777 Hz, 888 Hz, 999 Hz, 4096 Hz, 4160 Hz, and 4225 Hz.
 - **Schumann**: 7.83 Hz (too low to play on computer).
 
