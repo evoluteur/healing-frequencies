@@ -146,16 +146,16 @@
       };
 
       const playFreq = (btn, frequency = 174) => {
-        if (activeBtn) {
-          activeBtn.className = "";
-        }
-        activeBtn = btn;
-        btn.className = "active";
         if (frequency === "cf") {
           frequency = parseFloat("0" + $("cf").value);
           if (!frequency) return;
           localStorage.setItem("hfreq-cf", frequency);
         }
+        if (activeBtn) {
+          activeBtn.className = "";
+        }
+        activeBtn = btn;
+        btn.className = "active";
         stop(true);
         toggleStop(true, frequency);
         if (!context) {
