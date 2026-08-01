@@ -99,6 +99,7 @@
       let AudioContext = window.AudioContext || window.webkitAudioContext;
       let context;
       let oscillator;
+      let gain;
 
       const clearBtnUpdate = (skipBtnUpdate) => {
         if (activeBtn) {
@@ -130,7 +131,13 @@
           clearTimeout(cb);
         }
         if (isPlaying && oscillator) {
-          oscillator.stop();
+          // short fade-out to avoid an audible click on abrupt stop
+          const now = context.currentTime;
+          const v = gain.gain.value;
+          gain.gain.cancelScheduledValues(now);
+          gain.gain.setValueAtTime(v, now);
+          gain.gain.linearRampToValueAtTime(0, now + 0.03);
+          oscillator.stop(now + 0.035);
         }
         toggleStop(false, null, false);
         if (!skipBtnUpdate) {
@@ -155,14 +162,14 @@
           context = new AudioContext();
         }
         oscillator = context.createOscillator();
-        const g = context.createGain();
-        oscillator.connect(g);
+        gain = context.createGain();
+        oscillator.connect(gain);
         oscillator.type = "sine";
         oscillator.frequency.value = frequency;
-        g.connect(context.destination);
+        gain.connect(context.destination);
         oscillator.start(0);
-        // g.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + duration)
-        g.gain.setValueCurveAtTime(VOLUME_CURVE, context.currentTime, duration);
+        // gain.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + duration)
+        gain.gain.setValueCurveAtTime(VOLUME_CURVE, context.currentTime, duration);
         cb = setTimeout(() => toggleStop(false, null, true), duration * 1000);
       };
 
@@ -778,7 +785,15 @@
 
       <div class="fs" id="custom">
         <h2>Custom</h2>
-        <input id="cf" type="number" class="num" value="174" /> Hz &nbsp;
+        <input
+          id="cf"
+          type="number"
+          class="num"
+          value="174"
+          min="1"
+          max="5000"
+        />
+        Hz &nbsp;
         <button onclick="playFreq(this, 'cf')" class="play">
           <div></div>
           PLAY
