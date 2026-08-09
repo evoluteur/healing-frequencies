@@ -129,6 +129,32 @@
           text-decoration: underline;
         }
       }
+      @media only screen and (max-width: 600px) {
+        #header.w-nav,
+        #header.w-nav:hover {
+          min-height: 70px;
+        }
+        /* the jump links are hover-revealed on desktop and there is no hover on
+           touch, so put them in the flow instead: the ruler offsets collapse to
+           a plain row that scrolls sideways, and the header sizes to it even
+           when the title wraps. */
+        #header.w-nav .nav.fnav,
+        #header.w-nav:hover .nav.fnav {
+          position: static;
+          margin: 0 0 6px 10px;
+          padding-bottom: 2px;
+          overflow-x: auto;
+          overscroll-behavior-x: contain;
+          scrollbar-width: none;
+        }
+        #header.w-nav .nav.fnav > div {
+          position: static;
+          margin-right: 16px;
+        }
+        #header .nav::-webkit-scrollbar {
+          display: none;
+        }
+      }
     </style>
     <script type="application/ld+json">
     {

@@ -42,7 +42,7 @@ a {
 }
 select {
   position: absolute;
-  top: 20px;
+  top: 10px;
   right: 10px;
   font-size: 16px;
 }
@@ -130,8 +130,9 @@ select {
 }
 @media only screen and (max-width: 600px) {
   h1 {
-    font-size: 30px;
-    margin-right: 120px;
+    font-size: 21px;
+    margin: 10px 120px 6px 10px;
+    min-width: 0;
   }
   #mplay {
     display: none !important;

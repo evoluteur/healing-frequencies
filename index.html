@@ -353,9 +353,28 @@
         }
       }
       @media only screen and (max-width: 600px) {
-        .nav,
         #scale {
           display: none !important;
+        }
+        #header.w-nav,
+        #header.w-nav:hover {
+          min-height: 70px;
+        }
+        /* the nav is hover-revealed on desktop and there is no hover on touch,
+           so put it in the flow instead: always visible, scrolls sideways, and
+           the header sizes to it even when the title wraps. Only while not
+           playing, so it stays clear of the STOP button. */
+        #header.w-nav .nav,
+        #header.w-nav:hover .nav {
+          position: static;
+          margin: 0 0 6px 10px;
+          padding-bottom: 2px;
+          overflow-x: auto;
+          overscroll-behavior-x: contain;
+          scrollbar-width: none;
+        }
+        #header .nav::-webkit-scrollbar {
+          display: none;
         }
       }
     </style>
