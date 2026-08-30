@@ -40,6 +40,6 @@ Healing-Frequencies is Open Source at [GitHub](https://github.com/evoluteur/heal
 
 Encourage this project by [becoming a sponsor](https://github.com/sponsors/evoluteur).
 
-You may also be interested in my other project [Motivational Numerology](https://github.com/evoluteur/motivational-numerology).
+You may also be interested in my other projects [Sacred Geometry](https://github.com/evoluteur/sacred-geometry) and [Motivational Numerology](https://github.com/evoluteur/motivational-numerology).
 
 (c) 2026 [Olivier Giulieri](https://evoluteur.github.io/)
