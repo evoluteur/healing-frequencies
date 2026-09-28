@@ -42,6 +42,10 @@ Three themes (dark, light and evol-blue) are available from the toggle at the to
 
 Had fun browsing the app? [Buy me a coffee by becoming a sponsor](https://github.com/sponsors/evoluteur).
 
-You may also be interested in my other projects [Binaural Beats](https://github.com/evoluteur/binaural-beats), [Cymatics](https://github.com/evoluteur/cymatics), [Sacred Geometry](https://github.com/evoluteur/sacred-geometry), [Platonic Solids](https://github.com/evoluteur/platonic-solids), [Motivational Numerology](https://github.com/evoluteur/motivational-numerology), and [Archimedean Solids](https://github.com/evoluteur/archimedean-solids). See them all on [Esoterica](https://evoluteur.github.io/esoterica.html).
+You may be interested in my other projects [Tibetan Singing Bowls](https://evoluteur.github.io/tibetan-singing-bowls/), [Binaural Beats](https://evoluteur.github.io/binaural-beats/), [Cymatics](https://evoluteur.github.io/cymatics/), [Mandala Maker](https://evoluteur.github.io/mandala-maker/). See them all on [Esoterica](https://evoluteur.github.io/esoterica.html).
+
+<a href="https://healing-sounds.com/collections/tuning-forks?ref=evoluteur"><img src="img/solfeggio-forks.webp" alt="Solfeggio tuning forks" width="192" /></a>
+
+[Get tuning forks](https://healing-sounds.com/collections/tuning-forks?ref=evoluteur)
 
 (c) 2026 [Olivier Giulieri](https://evoluteur.github.io/)
