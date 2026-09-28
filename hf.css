@@ -240,7 +240,7 @@ select {
 .view-toggle {
   display: inline-block;
   vertical-align: top;
-  margin-left: 25px;
+  margin-left: 50px;
   margin-top: 22px;
   > a,
   > a:visited {
