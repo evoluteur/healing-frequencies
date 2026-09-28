@@ -185,6 +185,62 @@
           display: none;
         }
       }
+      /* mini view of the whole scale, on the right side */
+      #minimap {
+        display: none;
+      }
+      @media only screen and (min-width: 900px) {
+        #minimap {
+          display: block;
+          position: fixed;
+          z-index: 50;
+          right: 16px;
+          top: 120px;
+          bottom: 20px;
+          width: 64px;
+          max-height: 640px;
+          border: 1px solid var(--hf-border);
+          border-radius: 6px;
+          background-color: var(--hf-header-bg);
+          cursor: pointer;
+          touch-action: none;
+          user-select: none;
+          -webkit-user-select: none;
+          font-size: 11px;
+          > .mm-track {
+            position: absolute;
+            top: 10px;
+            bottom: 10px;
+            left: 38px;
+            border-left: 1px solid var(--hf-ax);
+            opacity: 0.6;
+          }
+          > .mm-tick {
+            position: absolute;
+            left: 39px;
+            width: 12px;
+            height: 1px;
+            background-color: var(--hf-fg);
+          }
+          > .mm-label {
+            position: absolute;
+            right: 30px;
+            transform: translateY(-50%);
+            color: var(--hf-ax);
+            opacity: 0.8;
+          }
+          > .mm-window {
+            position: absolute;
+            left: 3px;
+            right: 3px;
+            min-height: 4px;
+            border: 2px solid var(--hf-accent);
+            border-radius: 3px;
+            box-sizing: border-box;
+            pointer-events: none;
+          }
+        }
+      }
     </style>
     <script type="application/ld+json">
     {
@@ -226,6 +282,7 @@
 
 
     <a href="index.html" class="play" id="play">Play Frequencies</a>
+    <div id="minimap" title="Overview of the whole scale: click or drag to move"></div>
      <div id="fs">
       <div class="axis"></div>
       <div class="txt" style="top: 73px">
@@ -874,5 +931,103 @@
         </p>
       </p>
     </div>
+    <script>
+      // Mini view of the whole scale (0 to 4,240 Hz) on the right side: a tick
+      // for each frequency, and a window for the part of the scale on screen.
+      // Click or drag in it to move along the scale.
+      (function () {
+        const PX_PER_HZ = 10;
+        const mm = document.getElementById("minimap");
+        const fs = document.getElementById("fs");
+        const header = document.getElementById("header");
+        if (!mm || !fs) return;
+        const maxHz = (fs.offsetHeight - 10) / PX_PER_HZ;
+        const pad = 10;
+        const topOf = (el) => parseFloat(el.style.top) || 0;
+
+        // frequencies (skipping the axis graduations) and what they are for
+        const freqs = [...fs.querySelectorAll(".freq:not(.ax)")].map((el) => ({
+          hz: parseFloat(el.textContent),
+          names: [],
+        }));
+        fs.querySelectorAll(".txt").forEach((el) => {
+          const y = topOf(el) + 15;
+          let best = null;
+          freqs.forEach((f) => {
+            const d = Math.abs(f.hz * PX_PER_HZ + 10 - y);
+            if (!best || d < best.d) best = { f, d };
+          });
+          if (best) best.f.names.push(el.textContent.replace(/\s+/g, " ").trim());
+        });
+
+        const track = document.createElement("div");
+        track.className = "mm-track";
+        mm.appendChild(track);
+        const ticks = freqs.map((f) => {
+          const t = document.createElement("div");
+          t.className = "mm-tick";
+          t.title = f.hz + " Hz" + (f.names.length ? "\n" + f.names.join("\n") : "");
+          mm.appendChild(t);
+          return { el: t, hz: f.hz };
+        });
+        const labels = [0, 1000, 2000, 3000, 4000].map((hz) => {
+          const l = document.createElement("div");
+          l.className = "mm-label";
+          l.textContent = hz ? hz / 1000 + "k" : "0";
+          mm.appendChild(l);
+          return { el: l, hz };
+        });
+        const win = document.createElement("div");
+        win.className = "mm-window";
+        mm.appendChild(win);
+
+        const trackH = () => mm.clientHeight - 2 * pad;
+        const hzToY = (hz) => pad + (Math.min(Math.max(hz, 0), maxHz) / maxHz) * trackH();
+        const yToHz = (y) => ((y - pad) / trackH()) * maxHz;
+        const fsTop = () => fs.getBoundingClientRect().top + window.scrollY;
+        const headerH = () => (header ? header.offsetHeight : 0);
+
+        function layout() {
+          if (!mm.clientHeight) return; // hidden on small screens
+          ticks.forEach((t) => (t.el.style.top = hzToY(t.hz) + "px"));
+          labels.forEach((l) => (l.el.style.top = hzToY(l.hz) + "px"));
+          update();
+        }
+        function update() {
+          if (!mm.clientHeight) return;
+          const top = window.scrollY + headerH() - fsTop() - 10;
+          const bottom = window.scrollY + window.innerHeight - fsTop() - 10;
+          const y1 = hzToY(top / PX_PER_HZ);
+          const y2 = hzToY(bottom / PX_PER_HZ);
+          win.style.top = y1 + "px";
+          win.style.height = Math.max(y2 - y1, 4) + "px";
+        }
+        // scroll so that the frequency under the pointer is centered on screen
+        function goTo(e, behavior) {
+          const r = mm.getBoundingClientRect();
+          const hz = yToHz(e.clientY - r.top);
+          const visible = window.innerHeight - headerH();
+          const y = fsTop() + 10 + hz * PX_PER_HZ - headerH() - visible / 2;
+          window.scrollTo({ top: Math.max(y, 0), behavior });
+        }
+        let dragging = false;
+        mm.addEventListener("pointerdown", (e) => {
+          dragging = true;
+          mm.setPointerCapture(e.pointerId);
+          goTo(e, "smooth");
+        });
+        mm.addEventListener("pointermove", (e) => {
+          if (dragging) goTo(e, "instant");
+        });
+        const stop = () => (dragging = false);
+        mm.addEventListener("pointerup", stop);
+        mm.addEventListener("pointercancel", stop);
+
+        window.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", layout);
+        window.addEventListener("load", layout);
+        layout();
+      })();
+    </script>
   </body>
 </html>
