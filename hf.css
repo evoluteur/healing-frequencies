@@ -1,12 +1,74 @@
+/*
+  Healing Frequencies styles.
+  Colors come from the omg-themes stylesheets (linked from
+  https://evoluteur.github.io/omg-themes/, see the <head> of each page)
+  plus the --hf-* variables below, which adapt the page to each theme.
+  The defaults are the evol-blue theme (the original look).
+*/
+:root {
+  --hf-fg: white;
+  --hf-muted: #c6d9f0;
+  --hf-accent: #ffb74d;
+  --hf-border: #c6d9f0;
+  --hf-header-bg: #0288d1;
+  --hf-chip-bg: #c6d9f0;
+  --hf-chip-fg: #1a1a1a;
+  --hf-chip-label-bg: white;
+  --hf-chip-hover-bg: white;
+  --hf-chip-hover-label-bg: black;
+  --hf-chip-hover-label-fg: white;
+  --hf-active-bg: #707070;
+  --hf-active-fg: white;
+  --hf-active-label-bg: black;
+  --hf-ax: black;
+}
+:root[data-theme="dark"] {
+  --hf-fg: white;
+  --hf-muted: #b7c4d6;
+  --hf-accent: #ffb74d;
+  --hf-border: #3c4a5f;
+  --hf-header-bg: #1a212d;
+  --hf-chip-bg: #2d3848;
+  --hf-chip-fg: #e6ecf5;
+  --hf-chip-label-bg: #3c4a5f;
+  --hf-chip-hover-bg: #3c4a5f;
+  --hf-chip-hover-label-bg: #ffb74d;
+  --hf-chip-hover-label-fg: #1a212d;
+  --hf-active-bg: #3182ce;
+  --hf-active-fg: white;
+  --hf-active-label-bg: #1a212d;
+  --hf-ax: #b7c4d6;
+}
+:root[data-theme="light"] {
+  --hf-fg: #1a212d;
+  --hf-muted: #52617a;
+  --hf-accent: #b45f06;
+  --hf-border: #d0d7de;
+  --hf-header-bg: #fdfdff;
+  --hf-chip-bg: #eef2f8;
+  --hf-chip-fg: #1a212d;
+  --hf-chip-label-bg: #d0d7de;
+  --hf-chip-hover-bg: #dbe6f5;
+  --hf-chip-hover-label-bg: #3182ce;
+  --hf-chip-hover-label-fg: white;
+  --hf-active-bg: #3182ce;
+  --hf-active-fg: white;
+  --hf-active-label-bg: #2b6cb0;
+  --hf-ax: #1a212d;
+}
+
 html {
-  color: white;
-  background: #0288d1 url("spirals.png");
+  color: var(--hf-fg);
   scroll-behavior: smooth;
 }
 body {
   position: relative;
   margin: 0 8px;
-  padding: 0 10px 20px;
+  padding: 0 10px 20px 30px; /* left edge matches omg-themes (48px) */
+  font-family: "Marcellus", serif;
+  font-size: 16px;
+  font-weight: normal;
+  color: var(--hf-fg);
 }
 html,
 button,
@@ -15,26 +77,43 @@ input {
   font-family: "Marcellus", serif;
   font-size: 16px;
 }
-input,
-select {
-  background-color: white;
-}
 h1 {
   display: inline-block;
   margin: 10px 0 20px 10px;
-  min-width: 350px;
 }
 h3 {
   margin-top: 40px;
 }
 p {
-  color: #c6d9f0;
+  color: var(--hf-muted);
 }
-a {
-  color: #c6d9f0;
+a,
+a:visited {
+  color: var(--hf-muted);
+  text-decoration: underline;
   transition: color 0.5s 0.05s;
-  &:hover {
-    color: white;
+}
+a:hover {
+  color: var(--hf-fg);
+  text-decoration: underline;
+}
+/* "Get ... Tuning Forks" links, with a tuning fork icon on the left */
+.get-forks .fork-icon {
+  /* the dark theme styles every svg (fill, size), which filled in the fork */
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  vertical-align: -4px;
+  margin-right: 6px;
+}
+.real-forks {
+  margin-top: 20px;
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
   }
 }
 .num {
@@ -42,7 +121,7 @@ a {
 }
 select {
   position: absolute;
-  top: 10px;
+  top: 42px;
   right: 10px;
   font-size: 16px;
 }
@@ -52,12 +131,28 @@ select {
 }
 .footer {
   margin: 20px 0 20px 20px;
-  color: #c6d9f0;
+  color: var(--hf-muted);
   transition: color 0.5s;
   > p {
-    color: white;
-    > a {
-      color: #ffb74d;
+    color: var(--hf-fg);
+    > a,
+    > a:visited {
+      color: var(--hf-accent);
+    }
+  }
+}
+
+/* theme toggle (omg-themes picker), above the duration dropdown */
+#omg-theme-picker {
+  top: 8px;
+  right: 6px;
+  color: var(--hf-fg);
+  > a,
+  > a:visited {
+    color: var(--hf-fg);
+    text-decoration: none;
+    &.selected {
+      border-color: transparent;
     }
   }
 }
@@ -65,15 +160,15 @@ select {
 #header {
   position: sticky !important;
   top: 0;
-  min-height: 70px;
+  min-height: 80px;
   transition: min-height 0.3s 0.2s;
   overflow: hidden;
-  background: #0288d1 url("spirals.png");
-  border-bottom: 1px solid #c6d9f0;
+  background-color: var(--hf-header-bg);
+  border-bottom: 1px solid var(--hf-border);
   padding-top: 5px;
   z-index: 100;
   a:hover {
-    color: #ffb74d;
+    color: var(--hf-accent);
   }
   .nav {
     position: absolute;
@@ -87,46 +182,81 @@ select {
         top: -20px;
         cursor: pointer;
         &:hover {
-          color: #ffb74d;
+          color: var(--hf-accent);
         }
       }
     }
     > div {
       display: inline-block;
     }
-    > a {
+    > a,
+    > a:visited {
       margin-right: 10px;
       text-decoration: none;
       &:hover {
-        color: #ffb74d;
+        color: var(--hf-accent);
       }
     }
   }
   &.w-nav {
     position: relative;
     &:hover {
-      min-height: 80px;
+      min-height: 90px;
       .nav {
         bottom: 2px;
       }
-    }
-    #mplay {
-      position: absolute;
-      top: 25px;
-      right: 0;
-      display: block;
-      margin-left: 30px;
-      > a {
-        text-decoration: none;
-      }
-    }
-    #scale {
-      display: inline-block;
     }
     #stop {
       transform: translateY(-80px);
     }
   }
+}
+/* Player / Scale links, right of the title */
+.view-toggle {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 25px;
+  margin-top: 22px;
+  > a,
+  > a:visited {
+    margin-right: 15px;
+    color: var(--hf-accent);
+    text-decoration: none;
+    &.active {
+      color: var(--hf-fg);
+      cursor: default;
+    }
+  }
+}
+#header .view-toggle > a.active:hover {
+  color: var(--hf-fg);
+}
+/* hidden while playing, to stay clear of the STOP button */
+#header:not(.w-nav) .view-toggle {
+  visibility: hidden;
+}
+
+/* the sticky header uses the same background as the page (html, set by the
+   omg-themes stylesheet). Both are "fixed" so the texture lines up seamlessly
+   while scrolling. */
+html {
+  background-attachment: fixed;
+}
+#header {
+  background-image: var(--hf-page-bg-img);
+  background-repeat: var(--hf-page-bg-repeat, repeat);
+  background-attachment: fixed;
+}
+:root {
+  --hf-page-bg-img: url("https://evoluteur.github.io/omg-themes/css/themes/evol-blue/spirals.png");
+}
+:root[data-theme="dark"] {
+  --hf-page-bg-img: url("https://evoluteur.github.io/omg-themes/css/themes/dark/bg0.png");
+  --hf-page-bg-repeat: repeat-y;
+}
+:root[data-theme="light"] {
+  --hf-page-bg-img: url("https://evoluteur.github.io/omg-themes/css/themes/light/bg0.png");
+  --hf-page-bg-repeat: repeat-y;
 }
 @media only screen and (max-width: 600px) {
   h1 {
@@ -134,7 +264,7 @@ select {
     margin: 10px 120px 6px 10px;
     min-width: 0;
   }
-  #mplay {
-    display: none !important;
+  .view-toggle {
+    display: none;
   }
 }

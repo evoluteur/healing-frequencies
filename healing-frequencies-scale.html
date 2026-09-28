@@ -17,8 +17,27 @@
     <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="manifest" href="manifest.json" />
     <link rel="apple-touch-icon" href="icon-192.png" />
+    <link id="omg-core-css" rel="stylesheet" href="https://evoluteur.github.io/omg-themes/css/core.css" />
+    <script>
+      // Themes (dark, light, evol-blue) are linked from omg-themes, not copied.
+      window.OMG_THEMES_BASE = "https://evoluteur.github.io/omg-themes/";
+      window.OMG_DEFAULT_THEME = "evol-blue";
+      (function () {
+        var t = window.OMG_DEFAULT_THEME;
+        try {
+          t = localStorage.getItem("omg-theme") || t;
+        } catch (e) {}
+        if (t !== "dark" && t !== "light" && t !== "evol-blue") t = window.OMG_DEFAULT_THEME;
+        document.documentElement.setAttribute("data-theme", t);
+        // written here (not in the markup) so the saved theme loads before first paint
+        document.write(
+          '<link id="omg-theme-css" rel="stylesheet" href="' + window.OMG_THEMES_BASE + "css/themes/" + t + "/" + t + '.css" />',
+        );
+      })();
+    </script>
     <link href="hf.css" rel="stylesheet" />
-    <meta name="theme-color" content="#bbdefb" />
+    <script src="https://evoluteur.github.io/omg-themes/js/omg.js"></script>
+    <meta name="theme-color" content="#0288d1" />
     <script>
       if ("serviceWorker" in navigator) {
         addEventListener("load", () => navigator.serviceWorker.register("sw.js"));
@@ -56,10 +75,10 @@
         > .txt {
           left: 200px;
           padding: 4px 6px;
-          border: solid 1px white;
+          border: solid 1px var(--hf-fg);
           border-radius: 2px;
           > a {
-            color: #fbd5b5;
+            color: var(--hf-accent);
             text-decoration: none;
             &:hover {
               text-decoration: underline;
@@ -69,22 +88,22 @@
         > .freq {
           left: 100px;
           &.ax {
-            color: black;
+            color: var(--hf-ax);
           }
         }
         > .dot {
           left: 180px;
-          background-color: white;
+          background-color: var(--hf-fg);
           height: 2px;
           width: 10px;
           &.ax {
-            background-color: black;
+            background-color: var(--hf-ax);
           }
         }
         > .axis {
           top: 10px;
           left: 184px;
-          border-left: 1px solid white;
+          border-left: 1px solid var(--hf-fg);
           height: 42260px;
         }
         > .scroll-holder {
@@ -98,14 +117,14 @@
           font-style: italic;
           text-align: center;
           cursor: pointer;
-          color: black;
+          color: var(--hf-ax);
           transition: transform 0.5s 0.05s;
           &:hover {
             transform: scale(1.2);
           }
         }
         .arrow {
-          border: solid black;
+          border: solid var(--hf-ax);
           border-width: 0 3px 3px 0;
           padding: 3px;
           display: inline-block;
@@ -119,20 +138,31 @@
           }
         }
       }
-      .play {
+      a.play,
+      a.play:visited {
         position: absolute;
         top: 20px;
         right: 20px;
-        color: #fbd5b5;
+        color: var(--hf-accent);
         text-decoration: none;
         &:hover {
           text-decoration: underline;
         }
       }
+      /* keep the list of frequencies always visible (not only on hover) */
+      #header.w-nav {
+        min-height: 90px;
+        .nav {
+          bottom: 2px;
+        }
+      }
+      #header .nav.fnav {
+        margin-left: 20px;
+      }
       @media only screen and (max-width: 600px) {
         #header.w-nav,
         #header.w-nav:hover {
-          min-height: 70px;
+          min-height: 80px;
         }
         /* the jump links are hover-revealed on desktop and there is no hover on
            touch, so put them in the flow instead: the ruler offsets collapse to
@@ -172,21 +202,25 @@
     </script>
   </head>
 
-  <body>
+  <body onload="setupPage()">
     <header id="header" class="w-nav">
       <div id="progress"></div>
+      <div id="omg-theme-picker"></div>
       <h1 id="title">Healing Frequencies Scale</h1>
-      <div id="mplay">
-        <a href="index.html">Play frequencies</a>
-      </div>
+      <nav class="view-toggle" aria-label="View">
+        <a href="index.html">Player</a>
+        <a href="healing-frequencies-scale.html" class="active" aria-current="page">Scale</a>
+      </nav>
       <div class="nav fnav">
         <div onclick="javascript:scrollToFrequency(0)" style="left:-10px">0</div>
         <div onclick="javascript:scrollToFrequency(109)" style="left:11px">110</div>
         <div onclick="javascript:scrollToFrequency(512)" style="left:51px">512</div>
-        <div  onclick="javascript:scrollToFrequency(999)" style="left:99px">999 Hz</div>
+        <div  onclick="javascript:scrollToFrequency(999)" style="left:99px">999</div>
+        <div onclick="javascript:scrollToFrequency(1152)" style="left:130px">1152 Hz</div>
 
         <div  onclick="javascript:scrollToFrequency(2172)" style="left:217px">2172 Hz</div>
-        <div onclick="javascript:scrollToFrequency(4225)" style="left:422px">4225 Hz</div>
+        <div onclick="javascript:scrollToFrequency(4096)" style="left:409px">4096</div>
+        <div onclick="javascript:scrollToFrequency(4225)" style="left:452px">4225 Hz</div>
       </div>
     </header>
 

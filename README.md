@@ -38,6 +38,7 @@ Healing-Frequencies is a Progressive Web App (PWA): you can install it on your p
 
 Healing-Frequencies is Open Source at [GitHub](https://github.com/evoluteur/healing-frequencies) with MIT license.
 
+Three themes (dark, light and evol-blue) are available from the toggle at the top right. They are linked from [omg-themes](https://github.com/evoluteur/omg-themes) (hosted at https://evoluteur.github.io/omg-themes/) rather than copied, so the pages need network access the first time they are loaded, including on localhost. `hf.css` adapts the page to each theme with `--hf-*` variables.
 
 Had fun browsing the app? [Buy me a coffee by becoming a sponsor](https://github.com/sponsors/evoluteur).
 

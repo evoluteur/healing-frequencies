@@ -25,8 +25,27 @@
     <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="manifest" href="manifest.json" />
     <link rel="apple-touch-icon" href="icon-192.png" />
-    <meta name="theme-color" content="#bbdefb" />
+    <meta name="theme-color" content="#0288d1" />
+    <link id="omg-core-css" rel="stylesheet" href="https://evoluteur.github.io/omg-themes/css/core.css" />
+    <script>
+      // Themes (dark, light, evol-blue) are linked from omg-themes, not copied.
+      window.OMG_THEMES_BASE = "https://evoluteur.github.io/omg-themes/";
+      window.OMG_DEFAULT_THEME = "evol-blue";
+      (function () {
+        var t = window.OMG_DEFAULT_THEME;
+        try {
+          t = localStorage.getItem("omg-theme") || t;
+        } catch (e) {}
+        if (t !== "dark" && t !== "light" && t !== "evol-blue") t = window.OMG_DEFAULT_THEME;
+        document.documentElement.setAttribute("data-theme", t);
+        // written here (not in the markup) so the saved theme loads before first paint
+        document.write(
+          '<link id="omg-theme-css" rel="stylesheet" href="' + window.OMG_THEMES_BASE + "css/themes/" + t + "/" + t + '.css" />',
+        );
+      })();
+    </script>
     <link href="hf.css" rel="stylesheet" />
+    <script src="https://evoluteur.github.io/omg-themes/js/omg.js"></script>
     <script>
       if ("serviceWorker" in navigator) {
         addEventListener("load", () =>
@@ -209,7 +228,7 @@
       }
       .fs {
         position: relative;
-        border-left: 3px solid #c6d9f0;
+        border-left: 3px solid var(--hf-border);
         margin: 0 0 50px;
         padding: 0 0 5px 20px;
       }
@@ -293,19 +312,9 @@
         bottom: 0;
         height: 14px;
         width: 0;
-        background-color: white;
+        background-color: var(--hf-fg);
         opacity: 0.3;
         border-radius: 1px;
-      }
-      #scale {
-        display: none;
-        margin-left: 20px;
-        position: relative;
-        top: -3px;
-        color: #ffb74d;
-        > a {
-          text-decoration: none;
-        }
       }
       button {
         text-align: left;
@@ -313,15 +322,16 @@
         margin: 6px 6px 6px 0;
         border-radius: 10px;
         cursor: pointer;
-        background-color: #c6d9f0;
+        color: var(--hf-chip-fg);
+        background-color: var(--hf-chip-bg);
         transition: background-color 0.5s 0.05s;
-        border-width: 1px;
+        border: 1px solid var(--hf-border);
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
         max-width: 100%;
         > span {
-          background-color: white;
+          background-color: var(--hf-chip-label-bg);
           padding: 6px 10px 6px 15px;
           border-top-left-radius: 10px;
           border-bottom-left-radius: 10px;
@@ -331,19 +341,20 @@
             color 0.5s 0.05s;
         }
       }
-      button:hover {
-        background-color: white;
+      button:hover,
+      button:focus {
+        background-color: var(--hf-chip-hover-bg);
         > span {
-          background-color: black;
-          color: white;
+          background-color: var(--hf-chip-hover-label-bg);
+          color: var(--hf-chip-hover-label-fg);
         }
       }
       button.active {
-        background-color: #707070;
-        color: white;
+        background-color: var(--hf-active-bg);
+        color: var(--hf-active-fg);
         > span {
-          background-color: black;
-          color: white;
+          background-color: var(--hf-active-label-bg);
+          color: var(--hf-active-fg);
         }
       }
       .benefits {
@@ -352,13 +363,18 @@
           margin-bottom: 10px;
         }
       }
-      @media only screen and (max-width: 600px) {
-        #scale {
-          display: none !important;
+      /* keep the list of frequency sets always visible (not only on hover)
+         while not playing */
+      #header.w-nav {
+        min-height: 90px;
+        .nav {
+          bottom: 2px;
         }
+      }
+      @media only screen and (max-width: 600px) {
         #header.w-nav,
         #header.w-nav:hover {
-          min-height: 70px;
+          min-height: 80px;
         }
         /* the nav is hover-revealed on desktop and there is no hover on touch,
            so put it in the flow instead: always visible, scrolls sideways, and
@@ -367,7 +383,7 @@
         #header.w-nav .nav,
         #header.w-nav:hover .nav {
           position: static;
-          margin: 0 0 6px 10px;
+          margin: 0 115px 6px 10px; /* leaves room for the duration select */
           padding-bottom: 2px;
           overflow-x: auto;
           overscroll-behavior-x: contain;
@@ -380,13 +396,15 @@
     </style>
   </head>
 
-  <body onload="init()">
+  <body onload="init(); setupPage()">
     <header id="header" class="w-nav">
       <div id="progress"></div>
+      <div id="omg-theme-picker"></div>
       <h1 id="title">Healing Frequencies</h1>
-      <div id="scale">
+      <nav class="view-toggle" aria-label="View">
+        <a href="index.html" class="active" aria-current="page">Player</a>
         <a href="healing-frequencies-scale.html">Scale</a>
-      </div>
+      </nav>
       <select onchange="setDuration(this)" id="duration">
         <option value="5">5 seconds</option>
         <option value="10">10 seconds</option>
