@@ -26,7 +26,11 @@
     <link rel="manifest" href="manifest.json" />
     <link rel="apple-touch-icon" href="icon-192.png" />
     <meta name="theme-color" content="#0288d1" />
-    <link id="omg-core-css" rel="stylesheet" href="https://evoluteur.github.io/omg-themes/css/core.css" />
+    <link
+      id="omg-core-css"
+      rel="stylesheet"
+      href="https://evoluteur.github.io/omg-themes/css/core.css"
+    />
     <script>
       // Themes (dark, light, evol-blue) are linked from omg-themes, not copied.
       window.OMG_THEMES_BASE = "https://evoluteur.github.io/omg-themes/";
@@ -36,11 +40,18 @@
         try {
           t = localStorage.getItem("omg-theme") || t;
         } catch (e) {}
-        if (t !== "dark" && t !== "light" && t !== "evol-blue") t = window.OMG_DEFAULT_THEME;
+        if (t !== "dark" && t !== "light" && t !== "evol-blue")
+          t = window.OMG_DEFAULT_THEME;
         document.documentElement.setAttribute("data-theme", t);
         // written here (not in the markup) so the saved theme loads before first paint
         document.write(
-          '<link id="omg-theme-css" rel="stylesheet" href="' + window.OMG_THEMES_BASE + "css/themes/" + t + "/" + t + '.css" />',
+          '<link id="omg-theme-css" rel="stylesheet" href="' +
+            window.OMG_THEMES_BASE +
+            "css/themes/" +
+            t +
+            "/" +
+            t +
+            '.css" />',
         );
       })();
     </script>
@@ -396,7 +407,12 @@
     </style>
   </head>
 
-  <body onload="init(); setupPage()">
+  <body
+    onload="
+      init();
+      setupPage();
+    "
+  >
     <header id="header" class="w-nav">
       <div id="progress"></div>
       <div id="omg-theme-picker"></div>
@@ -407,8 +423,11 @@
         rel="noopener"
         title="Source code on GitHub"
         aria-label="Source code on GitHub"
-        ><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a
-      >
+        ><svg viewBox="0 0 16 16" aria-hidden="true">
+          <path
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+          /></svg
+      ></a>
       <h1 id="title">Healing Frequencies</h1>
       <nav class="view-toggle" aria-label="View">
         <a href="index.html" class="active" aria-current="page">Player</a>
@@ -479,7 +498,33 @@
             href="https://healing-sounds.com/collections/solfeggio-tuning-forks?ref=evoluteur"
             target="_blank"
             rel="noopener"
-            ><svg class="fork-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v9a3 3 0 0 0 6 0V2"/><path d="M12 14v5.5"/><circle cx="12" cy="21" r="1.7" fill="currentColor" stroke="none"/><path d="M5.5 4.5v5M18.5 4.5v5" stroke-width="1.5" opacity=".7"/></svg>Get Solfeggio Tuning Forks</a
+            ><svg
+              class="fork-icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M9 2v9a3 3 0 0 0 6 0V2" />
+              <path d="M12 14v5.5" />
+              <circle
+                cx="12"
+                cy="21"
+                r="1.7"
+                fill="currentColor"
+                stroke="none"
+              />
+              <path
+                d="M5.5 4.5v5M18.5 4.5v5"
+                stroke-width="1.5"
+                opacity=".7"
+              /></svg
+            >Get Solfeggio Tuning Forks</a
           >
         </p>
 
@@ -663,7 +708,27 @@
         </button>
 
         <p class="get-forks">
-          <svg class="fork-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v9a3 3 0 0 0 6 0V2"/><path d="M12 14v5.5"/><circle cx="12" cy="21" r="1.7" fill="currentColor" stroke="none"/><path d="M5.5 4.5v5M18.5 4.5v5" stroke-width="1.5" opacity=".7"/></svg>Get the Ohm Tuning Fork:
+          <svg
+            class="fork-icon"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M9 2v9a3 3 0 0 0 6 0V2" />
+            <path d="M12 14v5.5" />
+            <circle cx="12" cy="21" r="1.7" fill="currentColor" stroke="none" />
+            <path
+              d="M5.5 4.5v5M18.5 4.5v5"
+              stroke-width="1.5"
+              opacity=".7"
+            /></svg
+          >Get the Ohm Tuning Fork:
           <a
             href="https://healing-sounds.com/products/136-hz-om-tuning-fork-earth-heart-chakra?ref=evoluteur"
             target="_blank"
@@ -728,7 +793,33 @@
             href="https://healing-sounds.com/collections/chakra-tuning-forks?ref=evoluteur"
             target="_blank"
             rel="noopener"
-            ><svg class="fork-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v9a3 3 0 0 0 6 0V2"/><path d="M12 14v5.5"/><circle cx="12" cy="21" r="1.7" fill="currentColor" stroke="none"/><path d="M5.5 4.5v5M18.5 4.5v5" stroke-width="1.5" opacity=".7"/></svg>Get Chakras Tuning Forks</a
+            ><svg
+              class="fork-icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M9 2v9a3 3 0 0 0 6 0V2" />
+              <path d="M12 14v5.5" />
+              <circle
+                cx="12"
+                cy="21"
+                r="1.7"
+                fill="currentColor"
+                stroke="none"
+              />
+              <path
+                d="M5.5 4.5v5M18.5 4.5v5"
+                stroke-width="1.5"
+                opacity=".7"
+              /></svg
+            >Get Chakras Tuning Forks</a
           >
         </p>
       </div>
@@ -812,7 +903,33 @@
             href="https://healing-sounds.com/collections/planetary-tuning-forks?ref=evoluteur"
             target="_blank"
             rel="noopener"
-            ><svg class="fork-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v9a3 3 0 0 0 6 0V2"/><path d="M12 14v5.5"/><circle cx="12" cy="21" r="1.7" fill="currentColor" stroke="none"/><path d="M5.5 4.5v5M18.5 4.5v5" stroke-width="1.5" opacity=".7"/></svg>Get Planetary Tuning Forks</a
+            ><svg
+              class="fork-icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M9 2v9a3 3 0 0 0 6 0V2" />
+              <path d="M12 14v5.5" />
+              <circle
+                cx="12"
+                cy="21"
+                r="1.7"
+                fill="currentColor"
+                stroke="none"
+              />
+              <path
+                d="M5.5 4.5v5M18.5 4.5v5"
+                stroke-width="1.5"
+                opacity=".7"
+              /></svg
+            >Get Planetary Tuning Forks</a
           >
         </p>
       </div>
@@ -857,7 +974,33 @@
             href="https://healing-sounds.com/products/angel-tuning-forks-set?ref=evoluteur"
             target="_blank"
             rel="noopener"
-            ><svg class="fork-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v9a3 3 0 0 0 6 0V2"/><path d="M12 14v5.5"/><circle cx="12" cy="21" r="1.7" fill="currentColor" stroke="none"/><path d="M5.5 4.5v5M18.5 4.5v5" stroke-width="1.5" opacity=".7"/></svg>Get Angel Tuning Forks</a
+            ><svg
+              class="fork-icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M9 2v9a3 3 0 0 0 6 0V2" />
+              <path d="M12 14v5.5" />
+              <circle
+                cx="12"
+                cy="21"
+                r="1.7"
+                fill="currentColor"
+                stroke="none"
+              />
+              <path
+                d="M5.5 4.5v5M18.5 4.5v5"
+                stroke-width="1.5"
+                opacity=".7"
+              /></svg
+            >Get Angel Tuning Forks</a
           >
         </p>
 
@@ -961,7 +1104,33 @@
             href="https://healing-sounds.com/collections/tuning-forks?ref=evoluteur"
             target="_blank"
             rel="noopener"
-            ><svg class="fork-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v9a3 3 0 0 0 6 0V2"/><path d="M12 14v5.5"/><circle cx="12" cy="21" r="1.7" fill="currentColor" stroke="none"/><path d="M5.5 4.5v5M18.5 4.5v5" stroke-width="1.5" opacity=".7"/></svg>Get real tuning forks</a
+            ><svg
+              class="fork-icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M9 2v9a3 3 0 0 0 6 0V2" />
+              <path d="M12 14v5.5" />
+              <circle
+                cx="12"
+                cy="21"
+                r="1.7"
+                fill="currentColor"
+                stroke="none"
+              />
+              <path
+                d="M5.5 4.5v5M18.5 4.5v5"
+                stroke-width="1.5"
+                opacity=".7"
+              /></svg
+            >Get real tuning forks</a
           >
         </p>
       </div>
@@ -1005,8 +1174,7 @@
           target="mm"
           rel="noopener"
           >Mandala Maker</a
-        >.
-        See them all on
+        >. For more mystic arts as small web apps, see
         <a
           href="https://evoluteur.github.io/esoterica.html"
           target="esoterica"

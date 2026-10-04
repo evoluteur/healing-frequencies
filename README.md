@@ -42,7 +42,7 @@ Three themes (dark, light and evol-blue) are available from the toggle at the to
 
 Had fun browsing the app? [Buy me a coffee by becoming a sponsor](https://github.com/sponsors/evoluteur).
 
-You may be interested in my other projects [Tibetan Singing Bowls](https://evoluteur.github.io/tibetan-singing-bowls/), [Binaural Beats](https://evoluteur.github.io/binaural-beats/), [Cymatics](https://evoluteur.github.io/cymatics/), [Mandala Maker](https://evoluteur.github.io/mandala-maker/). See them all on [Esoterica](https://evoluteur.github.io/esoterica.html).
+You may be interested in my other projects [Tibetan Singing Bowls](https://evoluteur.github.io/tibetan-singing-bowls/), [Binaural Beats](https://evoluteur.github.io/binaural-beats/), [Cymatics](https://evoluteur.github.io/cymatics/), [Mandala Maker](https://evoluteur.github.io/mandala-maker/). For more mystic arts as small web apps, see [Esoterica](https://evoluteur.github.io/esoterica.html).
 
 <a href="https://healing-sounds.com/collections/tuning-forks?ref=evoluteur"><img src="img/solfeggio-forks.webp" alt="Solfeggio tuning forks" width="192" /></a>
 
