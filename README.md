@@ -18,7 +18,7 @@ Advocates of tuning fork therapy report a wide range of benefits, including:
 
 Frequencies offered in this project:
 
-- **Solfeggio**: 174 Hz, 285 Hz, 396 Hz, 417 Hz, 528 Hz, 639 Hz, 741 Hz, 852 Hz, 963 Hz, 1152 Hz, and 2172 Hz.
+- **Solfeggio**: 174 Hz, 285 Hz, 396 Hz, 417 Hz, 528 Hz, 639 Hz, 741 Hz, 852 Hz, 963 Hz, 1074 Hz, 1152 Hz, and 2172 Hz.
 - **Healing**: 128 Hz, 256 Hz, 512 Hz, and 1024 Hz.
 - **Organs**: 110 Hz, 117.3 Hz, 164.3 Hz, 176 Hz, 220 Hz, 281 Hz, 295.8 Hz, 315.8 Hz, 317.83 Hz, 319.88 Hz, 321.9 Hz, 324 Hz, 352 Hz, 418.3 Hz, and 492.8 Hz.
 - **Mineral nutrients**: 256 Hz, 272 Hz, 304 Hz, 312 Hz, 316 Hz, 320 Hz, 336 Hz, 341 Hz, 352 Hz, 376 Hz, 384 Hz, 400 Hz, 416 Hz, 424 Hz, 448 Hz, 464 Hz, and 480 Hz.

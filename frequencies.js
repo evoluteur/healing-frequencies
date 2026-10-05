@@ -100,6 +100,7 @@ const fs = [
     name: "Healing: Balancing the body's energy, improving the immune system, and pain relief",
     f: 1024,
   },
+  { name: "Solfeggio: Integration and expansion", f: 1074 },
   {
     name: "Solfeggio: Spiritual purification and to help you access higher spiritual realms",
     f: 1152,
